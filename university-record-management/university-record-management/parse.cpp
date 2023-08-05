@@ -23,11 +23,11 @@ void read_record(string fileName)
 		getline(fin, line);
 
 		// used for breaking words
-		stringstream s(line);
+		stringstream ss(line);
 
 		// read every column data of a row and
 		// store it in a string variable, 'word'
-		while (getline(s, word, ', ')) {
+		while (getline(ss, word, ', ')) {
 
 			// add all the column data
 			// of a row to a vector
