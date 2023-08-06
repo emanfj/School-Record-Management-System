@@ -10,7 +10,7 @@ class AVLTree
 private:
     struct avl_node
     {
-        T key;
+        T key;  // object to student or book 
         int height;
         avl_node *left;
         avl_node *right;

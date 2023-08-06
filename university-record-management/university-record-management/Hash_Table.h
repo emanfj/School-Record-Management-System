@@ -107,8 +107,9 @@ public:
         {
             if (*(current_item->key) == key)
             {
-                // Key already exists, add the value to the AVL tree.
-                current_item->value->insert(value);
+                // Key already exists, add the value to the AVL tree node struct
+
+                
             }
             else
             {
@@ -118,9 +119,12 @@ public:
         }
     }
 
+
     void handle_collision(int index, const int &key, const ValueType &value)
     {
-        // re-hash by using linear probing.
+
+        // current_item->value->insert(value);
+        // handle using avl tree 
 
         int newIndex = index;
 

@@ -3,6 +3,8 @@
 #include <fstream>
 #include <sstream>
 
+using namespace std;
+
 void read_record(string fileName)
 {
 	//file pointer
