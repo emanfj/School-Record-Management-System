@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
 
-#include "HashTable.h"
+#include "Hash_Table.h"
 #include "AVLTree.h"
-
-#include "Student.h"
-#include "Book.h"
-#include "BorrowedBook.h"
+#include "parser.h"
+#include "student.h"
+#include "book.h"
+#include "borrowed_book.h"
 
 using namespace std;
 

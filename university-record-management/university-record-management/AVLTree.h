@@ -274,7 +274,7 @@ bool AVLTree<T>::search(avl_node *root, T key)
 }
 
 template <typename T>
-void AVLTree<T>::print_inOrder(avl_node* root)
+void AVLTree<T>::print_inOrder()
 {
     if (root != nullptr)
     {

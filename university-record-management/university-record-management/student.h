@@ -11,6 +11,8 @@ struct Student
 	Student(int id, const std::string& name,int age,int grade) 
 		: id(id), name(name), age(age), grade(grade) {}
 
+	int getId() const { return id; }  //getter for id
+
 	//method to print out student details
 	void print() const
 	{

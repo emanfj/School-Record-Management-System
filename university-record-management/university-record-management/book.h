@@ -9,10 +9,11 @@ struct Book {
     bool isAvailable;
     //constructor for book instance
     Book(int id, const std::string& title, const std::vector<std::string>& authors, int year, bool isAvailable)
-        : id(id), title(title), authors(authors), publishing_year(year), isAvailable(available) {}
+        : id(id), title(title), authors(authors), publishing_year(year), isAvailable(isAvailable) {}
+    int getId() const { return id; }  //getter for id
 
     //for printing book details
-    void print() const()
+    void print() const
     {
         std::cout << "Book ID: " << id << "\nTitle: " << title << "\nPublishing Year: " <<
             publishing_year << "\nBook availability status: " << isAvailable << "\nAuthor(s): ";
