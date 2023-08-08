@@ -6,27 +6,10 @@
 #include "student.h"
 #include "book.h"
 #include "borrowed_book.h"
+#include "utilities.h"
 
 using namespace std;
 
-// functions for populating hash tables
-//  FOR STUDENTS
-void populateHashTable(HashTable<Student> &studentTable, const vector<Student> &students)
-{
-    for (const Student &student : students)
-    {
-        studentTable.insert(student.getId(), student);
-    }
-}
-
-// FOR BOOKS
-void populateHashTable(HashTable<Book> &bookTable, const vector<Book> &books)
-{
-    for (const Book &book : books)
-    {
-        bookTable.insert(book.getId(), book);
-    }
-}
 
 int main()
 {
@@ -40,8 +23,8 @@ int main()
     HashTable<Book> bookTable(static_cast<int>(books.size()));
 
     // populate hash tables
-    populateHashTable(studentTable, students);
-    populateHashTable(bookTable, books);
+    populateStudentHashTable(studentTable, students);
+    populateBookHashTable(bookTable, books);
 
     // print the hash table for testing
     cout << "STUDENT DATA:" << endl;

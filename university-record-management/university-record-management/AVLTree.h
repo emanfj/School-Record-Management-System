@@ -34,11 +34,13 @@ private:
     // determine the minimum value node from the avl tree
     avl_node *minValue_node(avl_node *);
     // private declarations
-    avl_node *insert(avl_node *node, T key);
-    avl_node *remove(avl_node *node, T key);
-    bool search(avl_node *node, T key);
-    // Function to print the AVL tree elements in sorted order
-    void print_inOrder(avl_node *node);
+    avl_node *insert(avl_node *, T );
+    avl_node *remove(avl_node *, T );
+    bool boolSearch(avl_node *, T );
+    void print_inOrder(avl_node *);     // function to print the AVL tree elements in sorted order
+    void getValues(avl_node*, std::vector<T>&);     //function to return all the values of the avl tree
+    T* search(avl_node* , const T&  );
+
 
 public:
     // public constructor for avl tree
@@ -58,10 +60,10 @@ public:
         root = remove(root, key);
     }
 
-    // public search method
-    bool search(T key)
+    // public search method with boolean return value
+    bool boolSearch(T key)
     {
-        return search(root, key);
+        return boolSearch(root, key);
     }
 
     // public function to print the AVL tree elements in sorted order
@@ -69,6 +71,20 @@ public:
     {
         print_inOrder(root);
         std::cout << std::endl;
+    }
+
+    // public interface to return all values of the avl tree
+    std::vector<T> getValues() 
+    {
+        std::vector<T> values;
+        getValues(root, values);
+        return values;
+    }
+
+    // public search method that returns searched node
+    T* search(const T& key)
+    {
+        return search(root, key);
     }
 };
 
@@ -270,7 +286,7 @@ typename AVLTree<T>::avl_node *AVLTree<T>::remove(avl_node *root, T key)
 }
 
 template <typename T>
-bool AVLTree<T>::search(avl_node *root, T key)
+bool AVLTree<T>::boolSearch(avl_node *root, T key)
 {
     // base cases: root is null or key is present at root
     if (root == nullptr || root->key == key)
@@ -278,10 +294,10 @@ bool AVLTree<T>::search(avl_node *root, T key)
 
     // Key is greater than root's key
     if (root->key < key)
-        return search(root->right, key);
+        return boolSearch(root->right, key);
 
     // Key is smaller than root's key
-    return search(root->left, key);
+    return boolSearch(root->left, key);
 }
 
 template <typename T>
@@ -294,5 +310,35 @@ void AVLTree<T>::print_inOrder(avl_node *node)
         print_inOrder(node->right);
     }
 }
+
+template <typename T>
+void AVLTree<T>::getValues(avl_node* node, std::vector<T>& values) 
+{
+    if (node != nullptr) 
+    {
+        //inorder traversal 
+        getValues(node->left, values);
+        values.push_back(node->key);
+        getValues(node->right, values);
+    }
+}
+
+template <typename T>
+T* AVLTree<T>::search(avl_node* node, const T& key) 
+{
+    if (node == NULL) {
+        return NULL; // key not found
+    }
+    if (key < node->key) {
+        return search(node->left, key);
+    }
+    else if (key > node->key) {
+        return search(node->right, key);
+    }
+    else {
+        return &(node->key);
+    }
+}
+
 
 #endif

@@ -15,10 +15,10 @@ private:
     // struct for each hash table entry
     struct Item
     {
-        int key;
+        std::string key;
         // an AVL Tree instance for each hash table entry
         AVLTree<ValueType> *value;
-        Item(int key, ValueType value) : key(key), value(new AVLTree<ValueType>())
+        Item(const std::string& key, ValueType value) : key(key), value(new AVLTree<ValueType>())
         {
             // values stored in AVL tree nodes
             // insert function of AVLTree template class is called here
@@ -30,12 +30,20 @@ private:
     std::vector<Item *> items;
     int count;
 
-    // Hash function to calculate the hash table index
-    int hashFunction(int key) const
+    //hash function to calculate the hash table index
+    //BKDR (Brian Kernighan and Dennis Ritchie) hash function
+    unsigned long hashFunction(const std::string& str) const 
     {
-        const int PRIME = 31;
-        return key * PRIME % items.size();
+        //unsigned long is used for wider range of values and to avoid negative values
+        unsigned long seed = 131; //prime number seed
+        unsigned long hash = 0;   //hash value updating for each character
+        for (int i = 0; i < str.length(); i++) 
+        {
+            hash = (hash * seed) + str[i];
+        }
+        return hash % items.size();
     }
+
 
 public:
     // constructor for hash table class
@@ -48,18 +56,36 @@ public:
     // destructor for hash table class
     ~HashTable()
     {
-        for (auto &item : items)
+        for (int i = 0; i < items.size(); i++)
         {
+            Item* item = items[i];
             if (item != nullptr)
             {
-                delete item->value; // delete the AVL tree
+                delete item->value; //delete the avl tree
                 delete item;
             }
         }
     }
 
+    std::vector<Item*> getItems() const 
+    {
+        std::vector<Item*> allItems;
+
+        //iterate over all items in the hash table
+        for (int i = 0; i < items.size(); i++) 
+        {
+            if (items[i] != nullptr) 
+            {
+                allItems.push_back(items[i]);
+            }
+        }
+
+        return allItems;
+    }
+
+
     // function to insert data at a hash table index
-    void insert(int key, ValueType value)
+    void insert(const std::string& key , ValueType value)
     {
         // hash index is calculated using hash function
         int index = hashFunction(key);
@@ -79,7 +105,7 @@ public:
     }
 
     // to search data in a hash table
-    AVLTree<ValueType> *search(int key)
+    AVLTree<ValueType> *search(const std::string& key)
     {
         int index = hashFunction(key);
         Item *current_item = items[index];
@@ -94,7 +120,7 @@ public:
 
 
     // prints the data to be searched
-    void printSearch(int key)
+    void printSearch(const std::string& key)
     {
         AVLTree<ValueType> *avlTree = search(key);
 
@@ -128,7 +154,7 @@ public:
         }
     }
 
-    void remove(int key, ValueType value)
+    void remove(const std::string& key, ValueType value)
     {
         int index = hashFunction(key);
         Item* current_item = items[index];
