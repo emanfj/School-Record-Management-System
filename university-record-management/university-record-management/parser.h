@@ -10,30 +10,37 @@
 
 using namespace std;
 
-std::vector<Student> readStudentCSV(const string& filename) 
+// parser function to read data from students
+std::vector<Student> readStudentCSV(const string &filename)
 {
+	// vector of students data
 	std::vector<Student> students;
 	ifstream file(filename);
 
 	if (!file.is_open())
 	{
-		//throw runtime_error("Could not open file");
+		// throw runtime_error("Could not open file");
 		std::cout << "Could not open file.\n";
 	}
 	string line, word;
 
-	//skip the header
+	// skip the header
 	if (file.good())
 	{
 		getline(file, line);
 	}
 
-	while (getline(file, line)) 
+	while (getline(file, line))
 	{
+		// creates a stream of lines
 		istringstream s(line);
+
+		// vector to store individual words of a line
 		vector<string> words;
 
-		while (getline(s, word, ',')) {
+		while (getline(s, word, ','))
+		{
+			// populating the vector
 			words.push_back(word);
 		}
 
@@ -51,41 +58,45 @@ std::vector<Student> readStudentCSV(const string& filename)
 	return students;
 }
 
-std::vector<Book> readBookCSV(const string& filename)
+// parser function to read data from books
+std::vector<Book> readBookCSV(const string &filename)
 {
+	// vector that contains books data
 	vector<Book> books;
 	ifstream file(filename);
 
 	if (!file.is_open())
 	{
-		//throw runtime_error("Could not open file");
+		// throw runtime_error("Could not open file");
 		std::cout << "Could not open file.\n";
 	}
 
 	string line, word;
 
-	//skip the header
+	// skip the header
 	if (file.good())
 	{
 		getline(file, line);
 	}
 
-	while (getline(file, line)) {
+	while (getline(file, line))
+	{
 		istringstream s(line);
 		vector<string> words;
 
-		while (getline(s, word, ',')) {
+		while (getline(s, word, ','))
+		{
 			words.push_back(word);
 		}
 
-		if (words.size() < 5) 
+		if (words.size() < 5)
 			continue;
 
 		int id = std::stoi(words[0]);
 		string title = words[1];
 		string author = words[2];
 		int publishing_year = stoi(words[3]);
-		bool isAvailable = words[4] == "true" ? true : false; //not sure how this works
+		bool isAvailable = words[4] == "true" ? true : false; 
 		books.emplace_back(id, title, author, publishing_year, isAvailable);
 	}
 
@@ -93,34 +104,36 @@ std::vector<Book> readBookCSV(const string& filename)
 	return books;
 }
 
-vector<BorrowedBook> readBorrowedCSV(const string& filename) 
+// parser function to read data from borrowed books
+vector<BorrowedBook> readBorrowedCSV(const string &filename)
 {
 	vector<BorrowedBook> borrowedBooks;
 	ifstream file(filename);
 
 	if (!file.is_open())
 	{
-		//throw runtime_error("Could not open file");
+		// throw runtime_error("Could not open file");
 		std::cout << "Could not open file.\n";
 	}
 	string line, word;
 
-	//skip the header
+	// skip the header
 	if (file.good())
 	{
 		getline(file, line);
 	}
 
-	while (getline(file, line)) 
+	while (getline(file, line))
 	{
 		istringstream s(line);
 		vector<string> words;
 
-		while (std::getline(s, word, ',')) {
+		while (std::getline(s, word, ','))
+		{
 			words.push_back(word);
 		}
 
-		if (words.size() < 5)  
+		if (words.size() < 5)
 			continue;
 
 		int id = std::stoi(words[0]);
@@ -134,4 +147,3 @@ vector<BorrowedBook> readBorrowedCSV(const string& filename)
 	file.close();
 	return borrowedBooks;
 }
-
