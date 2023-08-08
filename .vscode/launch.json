@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/cosmicdaisy/Projects/C++/DSA/DSA_PROJECT_SUMMER/university-record-management/university-record-management/university-record-management",
-      "program": "/home/cosmicdaisy/Projects/C++/DSA/DSA_PROJECT_SUMMER/university-record-management/university-record-management/university-record-management/build/Debug/outDebug",
+      "cwd": "/home/cosmicdaisy/Projects/C++/DSA/DSA_PROJECT_SUMMER/university-record-management-1/university-record-management/university-record-management",
+      "program": "/home/cosmicdaisy/Projects/C++/DSA/DSA_PROJECT_SUMMER/university-record-management-1/university-record-management/university-record-management/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
