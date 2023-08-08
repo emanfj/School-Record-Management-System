@@ -1,61 +1,66 @@
 #ifndef BOOK_H
 #define BOOK_H
 
-struct Book {
+#include <string>
+#include <iostream>
+
+class Book {
+private:
     int id;
     std::string title;
     std::string author;
-    //std::vector<std::string> authors;
     int publishing_year;
     bool isAvailable;
-    //constructor for book instance
+
+public:
+    // constructor for book instance
     Book(int id, const std::string& title, const std::string& author, int year, bool isAvailable)
         : id(id), title(title), author(author), publishing_year(year), isAvailable(isAvailable) {}
-    int getId() const { return id; }  //getter for id
 
-    //for printing book details
-    void print() const
-    {
+    // getter functions
+    int getId() const { return id; }
+    std::string getTitle() const { return title; }
+    std::string getAuthor() const { return author; }
+    int getYear() const { return publishing_year; }
+    bool getAvailability() const { return isAvailable; }
+
+    // for printing book details
+    void print() const {
         std::cout << "Book ID: " << id << "\nTitle: " << title << "\nPublishing Year: " <<
-            publishing_year << "\nBook availability status: " << isAvailable << "\nAuthor(s): " << author;
-       // for (int i = 0; i < authors.size(); i++)
-       //     std::cout << authors[i] << " ";
-        std::cout << std::endl;
+            publishing_year << "\nBook availability status: " << isAvailable << "\nAuthor: " << author << std::endl;
     }
 };
 
-//operator overloading for comparison operators
+// operator overloading for comparison operators
 bool operator<(const Book& lhs, const Book& rhs) {
-    return lhs.id < rhs.id;
+    return lhs.getId() < rhs.getId();
 }
 
 bool operator>(const Book& lhs, const Book& rhs) {
-    return lhs.id > rhs.id;
+    return lhs.getId() > rhs.getId();
 }
 
 bool operator<=(const Book& lhs, const Book& rhs) {
-    return lhs.id <= rhs.id;
+    return lhs.getId() <= rhs.getId();
 }
 
 bool operator>=(const Book& lhs, const Book& rhs) {
-    return lhs.id >= rhs.id;
+    return lhs.getId() >= rhs.getId();
 }
 
 bool operator==(const Book& lhs, const Book& rhs) {
-    return lhs.id == rhs.id;
+    return lhs.getId() == rhs.getId();
 }
 
 bool operator!=(const Book& lhs, const Book& rhs) {
-    return lhs.id != rhs.id;
+    return lhs.getId() != rhs.getId();
 }
 
-//operator overloading for output stream operator
+// operator overloading for output stream operator
 std::ostream& operator<<(std::ostream& os, const Book& book) {
-    os << "\nBook ID: " << book.id << "\nTitle: " << book.title << "\nPublishing Year: " << book.publishing_year
-        << "\nBook availability status: " << std::boolalpha << book.isAvailable << "\nAuthor: " << book.author << std::endl;
+    os << "\nBook ID: " << book.getId() << "\nTitle: " << book.getTitle() << "\nPublishing Year: " << book.getYear()
+        << "\nBook availability status: " << std::boolalpha << book.getAvailability() << "\nAuthor: " << book.getAuthor() << std::endl;
     return os;
 }
-
-
 
 #endif
