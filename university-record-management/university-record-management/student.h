@@ -25,15 +25,10 @@ public:
     int getGrade() const { return grade; }
 
     // method to print out student details
-    //void print() const {
-    //    std::cout << "ID: " << id << "\nName: " << name << "\nAge: " << age << "\nGrade: " << grade << std::endl;
-    //}
-    // method to print out student details
-    void print() const 
-    {
-        //print the current instance of the class using the overloaded output stream operator
-        std::cout << *this;
+    void print() const {
+        std::cout << "ID: " << id << "\nName: " << name << "\nAge: " << age << "\nGrade: " << grade << std::endl;
     }
+    
 };
 
 // operator overloading for comparison operators

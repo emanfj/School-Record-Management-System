@@ -1,102 +1,111 @@
-Book ID,Title,Author,Publishing Year,Availability
-1001,The Great Adventure,John Smith,2020,true
-1002,A Moment in Time,Emily Johnson,2018,true
-1003,Reflections of Tomorrow,Michael Williams,2019,true
-1004,Whispers in the Wind,Sarah Davis,2022,true
-1005,Echoes of Eternity,David Brown,2021,true
-1006,Serenade of Stars,Emma Roberts,2017,true
-1007,The Secret Garden,Robert Green,2015,true
-1008,Harmony's Melody,Laura Taylor,2023,true
-1009,Captured Dreams,James White,2016,true
-1010,Whimsical Wonders,Olivia Clark,2020,true
-1011,Under the Moonlight,Alex Turner,2019,true
-1012,Infinite Horizons,Grace Hall,2021,true
-1013,The Enchanted Forest,Nathan Walker,2018,true
-1014,Dancing Raindrops,Sophia King,2017,true
-1015,Beyond the Stars,Liam Harris,2022,true
-1016,Uncharted Journeys,Emma Allen,2016,true
-1017,Silent Whispers,Ethan Miller,2015,true
-1018,Whirlwind Adventures,Anna Scott,2023,true
-1019,Painted Memories,William Young,2019,true
-1020,Sunrise Serenity,Ava Martinez,2020,true
-1021,Fireside Tales,Noah Turner,2018,true
-1022,Celestial Dreams,Charlotte Baker,2021,true
-1023,Midnight Chronicles,Jack Hall,2017,true
-1024,Whispering Leaves,Sofia Anderson,2016,true
-1025,Lost in Time,Daniel White,2015,true
-1026,Everlasting Echoes,Isabella Moore,2022,true
-1027,Silver Linings,Ethan Adams,2019,true
-1028,Golden Sands,Lily Foster,2023,true
-1029,Starry Nights,David Garcia,2020,true
-1030,Mystic Secrets,Chloe Parker,2018,true
-1031,Autumn's Embrace,Andrew Scott,2016,true
-1032,Whispers of Hope,Grace Turner,2017,true
-1033,Enchanted Melodies,Samuel Clark,2021,true
-1034,The Lost Labyrinth,Olivia Lewis,2019,true
-1035,Sapphire Skies,Mia Roberts,2015,true
-1036,Realm of Legends,Noah Walker,2022,true
-1037,Secrets of the Sea,Ella Adams,2017,true
-1038,Whispering Pines,Liam Hall,2020,true
-1039,Timeless Adventures,Emily King,2018,true
-1040,Sunlit Memories,Lucas Martinez,2023,true
-1041,Whispers in the Mist,Ava Young,2016,true
-1042,Moonlit Magic,James Johnson,2015,true
-1043,Crimson Chronicles,Grace Taylor,2021,true
-1044,The Forgotten City,Emma White,2022,true
-1045,Whispers in the Dark,Noah Harris,2019,true
-1046,Hearts of Fire,Sophia Turner,2017,true
-1047,Silent Echoes,Oliver Clark,2018,true
-1048,Dreamer's Destiny,Lily Walker,2020,true
-1049,Starlight Serenade,Ethan Miller,2023,true
-1050,Voices from Beyond,Isabella Foster,2016,true
-1051,Whispers of Wisdom,Andrew Scott,2018,true
-1052,Evergreen Enchantment,Sofia Adams,2017,true
-1053,Midnight Shadows,Liam Turner,2021,true
-1054,Sunrise Serenade,Olivia Baker,2019,true
-1055,Echoes in the Wind,Noah Hall,2020,true
-1056,Mystic Moonlight,Isabella Moore,2016,true
-1057,Captured Dreams,Lucas Roberts,2023,true
-1058,Realm of Reflections,Ella Johnson,2015,true
-1059,Whispers of Wonder,James Lewis,2022,true
-1060,Enchanted Escapes,Mia Taylor,2017,true
-1061,The Crystal Key,Jack Young,2018,true
-1062,Infinite Skies,Sophia Smith,2020,true
-1063,Magical Moments,Liam Turner,2019,true
-1064,Sunlit Shores,Noah Walker,2021,true
-1065,Whispers in the Woods,Emma Turner,2016,true
-1066,Starry Nights,Ava Foster,2023,true
-1067,Reflections of Eternity,Oliver Clark,2015,true
-1068,Whispers in Time,Charlotte Green,2017,true
-1069,Enchanted Chronicles,Ethan White,2022,true
-1070,The Secret Garden,Sophia Taylor,2019,true
-1071,Midnight Dreams,Noah Allen,2016,true
-1072,Beneath the Moonlight,Isabella Harris,2020,true
-1073,Silver Linings,James Turner,2018,true
-1074,Harmony's Melody,Lily Hall,2021,true
-1075,Celestial Whispers,Andrew Brown,2017,true
-1076,Whispering Waves,Emily Johnson,2022,true
-1077,Echoes of Eternity,David Smith,2019,true
-1078,Shadows of the Past,Sofia Turner,2023,true
-1079,Aurora's Embrace,Liam Walker,2015,true
-1080,Voices from the Stars,Noah Turner,2016,true
-1081,Enchanted Melodies,Olivia Allen,2018,true
-1082,Sunrise Sonata,Ava Harris,2020,true
-1083,Dreams of Destiny,Jack Baker,2019,true
-1084,Whispers of Wisdom,Ella White,2017,true
-1085,Midnight Serenade,James Moore,2021,true
-1086,Everlasting Echoes,Lily Foster,2016,true
-1087,Whispering Willows,Emma Roberts,2022,true
-1088,Chronicles of Light,Charlotte Johnson,2015,true
-1089,Whispers in the Mist,Ethan Green,2023,true
-1090,Sunlit Serenity,Mia Taylor,2017,true
-1091,Echoes in the Wind,Noah Walker,2018,true
-1092,Mystic Moonlight,Isabella Turner,2020,true
-1093,Captured Dreams,Liam Harris,2019,true
-1094,Realm of Reflections,Ella Clark,2021,true
-1095,Whispers of Wonder,James Baker,2016,true
-1096,Enchanted Escapes,Sofia Moore,2023,true
-1097,The Crystal Key,Noah Smith,2015,true
-1098,Infinite Skies,Olivia Davis,2017,true
-1099,Magical Moments,Jack Hall,2022,true
-1100,Sunlit Shores,Emma Turner,2019,true
-
+Book ID,Title,Author,Publishing Year,Availability,Quantity
+1000,To Kill a Mockingbird,Harper Lee,1960,TRUE,7
+1001,1984,George Orwell,1949,TRUE,12
+1002,The Great Gatsby,F. Scott Fitzgerald,1925,TRUE,15
+1003,The Catcher in the Rye,J.D. Salinger,1951,TRUE,9
+1004,The Lord of the Rings,J.R.R. Tolkien,1954,TRUE,11
+1005,The Hobbit,J.R.R. Tolkien,1937,TRUE,13
+1006,The Da Vinci Code,Dan Brown,2003,TRUE,10
+1007,Angels & Demons,Dan Brown,2000,TRUE,8
+1008,Harry Potter and the Sorcerer's Stone,J.K. Rowling,1997,TRUE,15
+1009,Harry Potter and the Chamber of Secrets,J.K. Rowling,1998,TRUE,13
+1010,Harry Potter and the Prisoner of Azkaban,J.K. Rowling,1999,TRUE,14
+1011,Harry Potter and the Goblet of Fire,J.K. Rowling,2000,TRUE,12
+1012,Harry Potter and the Order of the Phoenix,J.K. Rowling,2003,TRUE,16
+1013,Harry Potter and the Half-Blood Prince,J.K. Rowling,2005,TRUE,15
+1014,Harry Potter and the Deathly Hallows,J.K. Rowling,2007,TRUE,17
+1015,The Alchemist,Paulo Coelho,1988,TRUE,11
+1016,Brida,Paulo Coelho,1990,TRUE,9
+1017,The Devil and Miss Prym,Paulo Coelho,2000,TRUE,10
+1018,Eleven Minutes,Paulo Coelho,2003,TRUE,8
+1019,The Valkyries,Paulo Coelho,1992,TRUE,7
+1020,The Old Man and the Sea,Ernest Hemingway,1952,TRUE,14
+1021,The Sun Also Rises,Ernest Hemingway,1926,TRUE,8
+1022,A Farewell to Arms,Ernest Hemingway,1929,TRUE,12
+1023,For Whom the Bell Tolls,Ernest Hemingway,1940,TRUE,11
+1024,The Great Alone,Kristin Hannah,2018,TRUE,9
+1025,The Nightingale,Kristin Hannah,2015,TRUE,13
+1026,Firefly Lane,Kristin Hannah,2008,TRUE,15
+1027,Fly Away,Kristin Hannah,2013,TRUE,10
+1028,The Four Winds,Kristin Hannah,2021,TRUE,12
+1029,The Mystery of Mercy Close,Marian Keyes,2012,TRUE,7
+1030,Watermelon,Marian Keyes,1995,TRUE,14
+1031,Rachel's Holiday,Marian Keyes,1998,TRUE,8
+1032,Last Chance Saloon,Marian Keyes,1999,TRUE,9
+1033,Sushi for Beginners,Marian Keyes,2000,TRUE,11
+1034,The Other Side of the Story,Marian Keyes,2004,TRUE,12
+1035,The Glass Lake,Maeve Binchy,1994,TRUE,15
+1036,Circle of Friends,Maeve Binchy,1990,TRUE,7
+1037,The Copper Beech,Maeve Binchy,1992,TRUE,10
+1038,Firefly Summer,Maeve Binchy,1987,TRUE,13
+1039,Evening Class,Maeve Binchy,1996,TRUE,16
+1040,Pride and Prejudice,Jane Austen,1813,TRUE,10
+1041,Sense and Sensibility,Jane Austen,1811,TRUE,9
+1042,Mansfield Park,Jane Austen,1814,TRUE,11
+1043,Emma,Jane Austen,1815,TRUE,8
+1044,Northanger Abbey,Jane Austen,1817,TRUE,10
+1045,Persuasion,Jane Austen,1817,TRUE,9
+1046,War and Peace,Leo Tolstoy,1869,TRUE,12
+1047,Anna Karenina,Leo Tolstoy,1877,TRUE,10
+1048,The Death of Ivan Ilyich,Leo Tolstoy,1886,TRUE,13
+1049,Resurrection,Leo Tolstoy,1899,TRUE,7
+1050,The Brothers Karamazov,Fyodor Dostoevsky,1880,TRUE,10
+1051,Crime and Punishment,Fyodor Dostoevsky,1866,TRUE,11
+1052,Notes from Underground,Fyodor Dostoevsky,1864,TRUE,9
+1053,The Idiot,Fyodor Dostoevsky,1869,TRUE,13
+1054,The Demon-Haunted World,Carl Sagan,1995,TRUE,12
+1055,Cosmos,Carl Sagan,1980,TRUE,14
+1056,Contact,Carl Sagan,1985,TRUE,8
+1057,The Dragons of Eden,Carl Sagan,1977,TRUE,10
+1058,Shadows of Forgotten Ancestors,Carl Sagan,1992,TRUE,11
+1059,The Variety of Scientific Experience,Carl Sagan,2006,TRUE,9
+1060,The Catch-22,Joseph Heller,1961,TRUE,12
+1061,The Godfather,Mario Puzo,1969,TRUE,10
+1062,The Stand,Stephen King,1978,TRUE,14
+1063,It,Stephen King,1986,TRUE,13
+1064,The Shining,Stephen King,1977,TRUE,11
+1065,Carrie,Stephen King,1974,TRUE,15
+1066,Salem's Lot,Stephen King,1975,TRUE,9
+1067,Misery,Stephen King,1987,TRUE,14
+1068,The Dark Tower I: The Gunslinger,Stephen King,1982,TRUE,10
+1069,Pet Sematary,Stephen King,1983,TRUE,12
+1070,The Da Vinci Code,Dan Brown,2003,TRUE,15
+1071,Angels & Demons,Dan Brown,2000,TRUE,11
+1072,Digital Fortress,Dan Brown,1998,TRUE,9
+1073,Deception Point,Dan Brown,2001,TRUE,13
+1074,Inferno,Dan Brown,2013,TRUE,14
+1075,Origin,Dan Brown,2017,TRUE,12
+1076,The Lost Symbol,Dan Brown,2009,TRUE,15
+1077,Don Quixote,Miguel de Cervantes,1615,TRUE,10
+1078,One Hundred Years of Solitude,Gabriel Garcia Marquez,1967,TRUE,9
+1079,Love in the Time of Cholera,Gabriel Garcia Marquez,1985,TRUE,11
+1080,Crime and Punishment,Fyodor Dostoevsky,1866,TRUE,12
+1081,The Brothers Karamazov,Fyodor Dostoevsky,1880,TRUE,14
+1082,War and Peace,Leo Tolstoy,1869,TRUE,10
+1083,Anna Karenina,Leo Tolstoy,1877,TRUE,13
+1084,Moby Dick,Herman Melville,1851,TRUE,9
+1085,The Odyssey,Homer,1700,TRUE,11
+1086,The Iliad,Homer,1762,TRUE,14
+1087,Pride and Prejudice,Jane Austen,1813,TRUE,12
+1088,Sense and Sensibility,Jane Austen,1811,TRUE,10
+1089,Emma,Jane Austen,1815,TRUE,13
+1090,Persuasion,Jane Austen,1817,TRUE,11
+1091,Northanger Abbey,Jane Austen,1817,TRUE,15
+1092,Mansfield Park,Jane Austen,1814,TRUE,14
+1093,Little Women,Louisa May Alcott,1868,TRUE,9
+1094,Jo's Boys,Louisa May Alcott,1886,TRUE,12
+1095,The Scarlet Letter,Nathaniel Hawthorne,1850,TRUE,10
+1096,The House of the Seven Gables,Nathaniel Hawthorne,1851,TRUE,8
+1097,Dracula,Bram Stoker,1897,TRUE,14
+1098,The Adventures of Huckleberry Finn,Mark Twain,1884,TRUE,15
+1099,The Adventures of Tom Sawyer,Mark Twain,1876,TRUE,11
+1100,The Picture of Dorian Gray,Oscar Wilde,1890,TRUE,12
+1101,The Importance of Being Earnest,Oscar Wilde,1895,TRUE,14
+1102,Macbeth,William Shakespeare,1606,TRUE,10
+1103,Hamlet,William Shakespeare,1603,TRUE,12
+1104,Othello,William Shakespeare,1603,TRUE,11
+1105,King Lear,William Shakespeare,1606,TRUE,13
+1106,Romeo and Juliet,William Shakespeare,1597,TRUE,9
+1107,The Tempest,William Shakespeare,1611,TRUE,11
+1108,Julius Caesar,William Shakespeare,1599,TRUE,13
+1109,The Merchant of Venice,William Shakespeare,1597,TRUE,12
