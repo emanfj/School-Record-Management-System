@@ -16,7 +16,7 @@ struct Student
 	//method to print out student details
 	void print() const
 	{
-		std::cout << "ID: " << id << "\nName: " << name << "\Age: " << age << "\nGrade: " << grade;
+		std::cout << "ID: " << id << "\nName: " << name << "\nAge: " << age << "\nGrade: " << grade;
 		std::cout << std::endl;
 	}
 

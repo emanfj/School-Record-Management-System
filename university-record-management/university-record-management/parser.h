@@ -8,9 +8,11 @@
 #include "book.h"
 #include "borrowed_book.h"
 
-vector<Student> readStudentCSV(const string& filename) 
+using namespace std;
+
+std::vector<Student> readStudentCSV(const string& filename) 
 {
-	vector<Student> students;
+	std::vector<Student> students;
 	ifstream file(filename);
 
 	if (!file.is_open())
@@ -42,7 +44,7 @@ vector<Student> readStudentCSV(const string& filename)
 	return students;
 }
 
-vector<Book> readBookCSV(const string& filename)
+std::vector<Book> readBookCSV(const string& filename)
 {
 	vector<Book> books;
 	ifstream file(filename);

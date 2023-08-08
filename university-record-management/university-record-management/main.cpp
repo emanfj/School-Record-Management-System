@@ -30,8 +30,9 @@ int main()
     vector<BorrowedBook> borrowedBooks = readBorrowedCSV("borrowed_books.csv");
 
     //initialize hash tables
-    HashTable<Student> studentTable(students.size());
-    HashTable<Book> bookTable(books.size());
+    HashTable<Student> studentTable(static_cast<int>(students.size())); //explicitly casting the value from size_t to int
+    HashTable<Book> bookTable(static_cast<int>(books.size()));
+
 
     //populate hash tables
     populateHashTable(studentTable, students);
