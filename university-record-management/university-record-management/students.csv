@@ -1,101 +1,52 @@
 Student ID,Name,Age,Grade
-570,Student1,14,10
-330,Student2,15,11
-123,Student3,16,12
-607,Student4,17,9
-534,Student5,18,10
-402,Student6,13,11
-955,Student7,14,12
-115,Student8,15,9
-792,Student9,16,10
-132,Student10,17,11
-191,Student11,18,12
-159,Student12,13,9
-121,Student13,14,10
-656,Student14,15,11
-570,Student15,16,12
-335,Student16,17,9
-539,Student17,18,10
-448,Student18,13,11
-443,Student19,14,12
-483,Student20,15,9
-265,Student21,16,10
-395,Student22,17,11
-337,Student23,18,12
-568,Student24,13,9
-984,Student25,14,10
-270,Student26,15,11
-266,Student27,16,12
-513,Student28,17,9
-505,Student29,18,10
-414,Student30,13,11
-773,Student31,14,12
-972,Student32,15,9
-671,Student33,16,10
-281,Student34,17,11
-316,Student35,18,12
-833,Student36,13,9
-911,Student37,14,10
-433,Student38,15,11
-649,Student39,16,12
-706,Student40,17,9
-452,Student41,18,10
-158,Student42,13,11
-843,Student43,14,12
-864,Student44,15,9
-836,Student45,16,10
-747,Student46,17,11
-927,Student47,18,12
-353,Student48,13,9
-432,Student49,14,10
-824,Student50,15,11
-851,Student51,16,12
-674,Student52,17,9
-599,Student53,18,10
-997,Student54,13,11
-586,Student55,14,12
-542,Student56,15,9
-903,Student57,16,10
-166,Student58,17,11
-277,Student59,18,12
-548,Student60,13,9
-491,Student61,14,10
-765,Student62,15,11
-610,Student63,16,12
-174,Student64,17,9
-240,Student65,18,10
-252,Student66,13,11
-680,Student67,14,12
-723,Student68,15,9
-172,Student69,16,10
-812,Student70,17,11
-882,Student71,18,12
-734,Student72,13,9
-227,Student73,14,10
-845,Student74,15,11
-835,Student75,16,12
-187,Student76,17,9
-518,Student77,18,10
-329,Student78,13,11
-421,Student79,14,12
-437,Student80,15,9
-854,Student81,16,10
-703,Student82,17,11
-957,Student83,18,12
-804,Student84,13,9
-203,Student85,14,10
-227,Student86,15,11
-874,Student87,16,12
-438,Student88,17,9
-492,Student89,18,10
-219,Student90,13,11
-881,Student91,14,12
-605,Student92,15,9
-168,Student93,16,10
-159,Student94,17,11
-709,Student95,18,12
-330,Student96,13,9
-849,Student97,14,10
-485,Student98,15,11
-246,Student99,16,12
-368,Student100,17,9
+100,John Smith,14,10
+101,Jane Doe,15,11
+102,Michael Johnson,16,12
+103,Emily Wilson,17,9
+104,David Lee,18,10
+105,Sarah Brown,13,11
+106,William Taylor,14,12
+107,Olivia Miller,15,9
+108,James Anderson,16,10
+109,Sophia Martinez,17,11
+110,Ethan Hernandez,18,12
+111,Ava Davis,13,9
+112,Isabella Rodriguez,14,10
+113,Noah Moore,15,11
+114,Liam Walker,16,12
+115,Emma Perez,17,9
+116,Mia Lewis,18,10
+117,Oliver Jackson,13,11
+118,Elijah Hall,14,12
+119,Alexander White,15,9
+120,Grace Harris,16,10
+121,Abigail Clark,17,11
+122,Ella King,18,12
+123,Lucas Young,13,9
+124,Matthew Allen,14,10
+125,Daniel Wright,15,11
+126,William Scott,16,12
+127,Liam Phillips,17,9
+128,Mason Turner,18,10
+129,James Martin,13,11
+130,Benjamin Hill,14,12
+131,Henry Adams,15,9
+132,Sebastian Green,16,10
+133,Emma Baker,17,11
+134,Olivia Nelson,18,12
+135,Isabella Edwards,13,9
+136,Sophia Evans,14,10
+137,Charlotte Martinez,15,11
+138,Amelia Robinson,16,12
+139,Ava Johnson,17,9
+140,Emily Williams,18,10
+141,Scarlett Davis,13,11
+142,Zoe Jackson,14,12
+143,Chloe Moore,15,9
+144,Lily Thompson,16,10
+145,Ella Garcia,17,11
+146,Mia Hernandez,18,12
+147,Layla Wilson,13,9
+148,Grace Martinez,14,10
+149,Victoria Taylor,15,11
+150,Sofia Miller,16,12

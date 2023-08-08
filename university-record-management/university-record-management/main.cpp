@@ -39,7 +39,10 @@ int main()
     populateHashTable(bookTable, books);
 
     //print the hash table for testing
+    cout << "STUDENT DATA:" << endl;
     studentTable.printTable();
-
+    cout << "BOOK DATA:" << endl;
+    bookTable.printTable();
+   
     return 0;
 }
