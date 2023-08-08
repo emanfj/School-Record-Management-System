@@ -110,6 +110,26 @@ public:
             }
         }
     }
+
+    void remove(int key, ValueType value)
+    {
+        int index = hashFunction(key);
+        Item* current_item = items[index];
+
+        if (current_item != nullptr && current_item->key == key)
+        {
+            current_item->value->remove(value); //using AVL tree remove function
+            // delete the tree and the item if the tree becomes empty after removal
+            if (current_item->value->isEmpty()) //using AVL tree isEmpty function
+            {
+                delete current_item->value;
+                delete current_item;
+                items[index] = nullptr;
+                count--;
+            }
+        }
+    }
+
 };
 
 #endif

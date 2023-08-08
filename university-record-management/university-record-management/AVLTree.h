@@ -21,6 +21,8 @@ private:
     };
     avl_node *root;
     // helper functions not intended to be called directly
+    //to determine is tree is empty
+    bool isEmpty() const;
     // function to determine height of the tree
     int height(avl_node *);
     // function to determine balance factor of a node
@@ -76,6 +78,11 @@ int AVLTree<T>::height(avl_node *node)
         return 0;
     else
         return node->height;
+}
+
+template <typename T>
+bool AVLTree<T>::isEmpty() const {
+    return root == nullptr;
 }
 
 template <typename T>
