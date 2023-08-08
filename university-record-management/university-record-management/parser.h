@@ -21,6 +21,13 @@ std::vector<Student> readStudentCSV(const string& filename)
 		std::cout << "Could not open file.\n";
 	}
 	string line, word;
+
+	//skip the header
+	if (file.good())
+	{
+		getline(file, line);
+	}
+
 	while (getline(file, line)) 
 	{
 		istringstream s(line);
@@ -56,6 +63,13 @@ std::vector<Book> readBookCSV(const string& filename)
 	}
 
 	string line, word;
+
+	//skip the header
+	if (file.good())
+	{
+		getline(file, line);
+	}
+
 	while (getline(file, line)) {
 		istringstream s(line);
 		vector<string> words;
@@ -90,6 +104,13 @@ vector<BorrowedBook> readBorrowedCSV(const string& filename)
 		std::cout << "Could not open file.\n";
 	}
 	string line, word;
+
+	//skip the header
+	if (file.good())
+	{
+		getline(file, line);
+	}
+
 	while (getline(file, line)) 
 	{
 		istringstream s(line);

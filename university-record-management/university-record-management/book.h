@@ -49,5 +49,13 @@ bool operator!=(const Book& lhs, const Book& rhs) {
     return lhs.id != rhs.id;
 }
 
+//operator overloading for output stream operator
+std::ostream& operator<<(std::ostream& os, const Book& book) {
+    os << "\nBook ID: " << book.id << "\nTitle: " << book.title << "\nPublishing Year: " << book.publishing_year
+        << "\nBook availability status: " << book.isAvailable << "\nAuthor: " << book.author << std::endl;
+    return os;
+}
+
+
 
 #endif

@@ -23,7 +23,7 @@ private:
     int count;
 
     int hashFunction(int key) const {
-        const int PRIME = 31; 
+        const int PRIME = 7; 
         return key * PRIME % items.size();
     }
 
@@ -100,7 +100,11 @@ public:
         {
             if (items[i] != nullptr)
             {
-                std::cout << "Index:" << i << ", Key:" << items[i]->key << ", Values: ";
+                //index is the position in the array where the item is stored output of the hash function
+                //integer (eg ID) that identifies the value type (student or book)
+                //value is the actual data the table is storing
+                std::cout << "-----------------------------\n";
+                std::cout << "Index:" << i << "\t Values: ";
                 items[i]->value->print_inOrder();
                 std::cout << "\n";
             }

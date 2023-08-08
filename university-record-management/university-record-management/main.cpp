@@ -38,5 +38,8 @@ int main()
     populateHashTable(studentTable, students);
     populateHashTable(bookTable, books);
 
+    //print the hash table for testing
+    studentTable.printTable();
+
     return 0;
 }

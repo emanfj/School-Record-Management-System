@@ -47,5 +47,11 @@ bool operator!=(const Student& lhs, const Student& rhs) {
 	return lhs.id != rhs.id;
 }
 
+//operator overloading for output stream operators
+std::ostream& operator<<(std::ostream& os, const Student& student) {
+	os << "\nStudent ID: " << student.id << "\nName: " << student.name << "\nAge: " << student.age << "\nGrade: " << student.grade << std::endl;
+	return os;
+}
+
 
 #endif
