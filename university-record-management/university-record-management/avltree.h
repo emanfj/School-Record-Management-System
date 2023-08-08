@@ -2,7 +2,9 @@
 #define AVLTREES_H
 
 #include <algorithm>
+#include <iostream>
 using namespace std;
+
 // defining template class for avl trees
 template <typename T>
 class AVLTree
