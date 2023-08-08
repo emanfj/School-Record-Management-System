@@ -33,7 +33,7 @@ private:
     avl_node *remove(avl_node *node, T key);
     bool search(avl_node *node, T key);
     // Function to print the AVL tree elements in sorted order
-    void print_inOrder();
+    void print_inOrder(avl_node* node);
 public:
     // public constructor for avl tree
     AVLTree() : root(nullptr) {}
@@ -58,12 +58,13 @@ public:
         return search(root, key);
     }
 
-    // Function to print the AVL tree elements in sorted order
-    void print_sorted()
+    //function to print the AVL tree elements in sorted order
+    void print_inOrder()
     {
-        print_sorted(root, key);
-        cout << endl;
+        print_inOrder(root);
+        std::cout << std::endl;
     }
+
 };
 
 template <typename T>
@@ -274,13 +275,13 @@ bool AVLTree<T>::search(avl_node *root, T key)
 }
 
 template <typename T>
-void AVLTree<T>::print_inOrder()
+void AVLTree<T>::print_inOrder(avl_node* node)
 {
-    if (root != nullptr)
+    if (node != nullptr)
     {
-        print_sorted(root->left);
-        cout << root->key << " ";
-        print_sorted(root->right);
+        print_inOrder(node->left);
+        std::cout << node->key << " ";
+        print_inOrder(node->right);
     }
 }
 
