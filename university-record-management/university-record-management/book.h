@@ -1,11 +1,8 @@
+// TEMPLATE FOR BOOK DATA
 #ifndef BOOK_H
 #define BOOK_H
 
-#include <string>
-#include <iostream>
-
-class Book {
-private:
+struct Book {
     int id;
     std::string title;
     std::string author;

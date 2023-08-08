@@ -1,3 +1,4 @@
+// TEMPLATE FOR AVL TREE
 #ifndef AVLTREES_H
 #define AVLTREES_H
 
@@ -12,7 +13,7 @@ class AVLTree
 private:
     struct avl_node
     {
-        T key;  // object to student or book 
+        T key; // object to student or book
         int height;
         avl_node *left;
         avl_node *right;
@@ -37,7 +38,8 @@ private:
     avl_node *remove(avl_node *node, T key);
     bool search(avl_node *node, T key);
     // Function to print the AVL tree elements in sorted order
-    void print_inOrder(avl_node* node);
+    void print_inOrder(avl_node *node);
+
 public:
     // public constructor for avl tree
     AVLTree() : root(nullptr) {}
@@ -62,13 +64,12 @@ public:
         return search(root, key);
     }
 
-    //function to print the AVL tree elements in sorted order
+    // public function to print the AVL tree elements in sorted order
     void print_inOrder()
     {
         print_inOrder(root);
         std::cout << std::endl;
     }
-
 };
 
 template <typename T>
@@ -284,7 +285,7 @@ bool AVLTree<T>::search(avl_node *root, T key)
 }
 
 template <typename T>
-void AVLTree<T>::print_inOrder(avl_node* node)
+void AVLTree<T>::print_inOrder(avl_node *node)
 {
     if (node != nullptr)
     {
@@ -293,6 +294,5 @@ void AVLTree<T>::print_inOrder(avl_node* node)
         print_inOrder(node->right);
     }
 }
-
 
 #endif

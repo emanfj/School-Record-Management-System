@@ -1,3 +1,5 @@
+// TEMPLATE FOR STUDENT DATA
+
 #ifndef STUDENT_H
 #define STUDENT_H
 
