@@ -22,4 +22,30 @@ struct Student
 
 };
 
+//operator overloading for comparison operators
+bool operator<(const Student& lhs, const Student& rhs) {
+	return lhs.id < rhs.id;
+}
+
+bool operator>(const Student& lhs, const Student& rhs) {
+	return lhs.id > rhs.id;
+}
+
+bool operator<=(const Student& lhs, const Student& rhs) {
+	return lhs.id <= rhs.id;
+}
+
+bool operator>=(const Student& lhs, const Student& rhs) {
+	return lhs.id >= rhs.id;
+}
+
+bool operator==(const Student& lhs, const Student& rhs) {
+	return lhs.id == rhs.id;
+}
+
+bool operator!=(const Student& lhs, const Student& rhs) {
+	return lhs.id != rhs.id;
+}
+
+
 #endif

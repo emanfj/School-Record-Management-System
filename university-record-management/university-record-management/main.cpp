@@ -27,7 +27,7 @@ int main()
     //load data from CSV files
     vector<Student> students = readStudentCSV("students.csv");
     vector<Book> books = readBookCSV("books.csv");
-    vector<BorrowedBook> borrowedBooks = readBorrowedCSV("borrowed_books.csv");
+   // vector<BorrowedBook> borrowedBooks = readBorrowedCSV("borrowed_books.csv");
 
     //initialize hash tables
     HashTable<Student> studentTable(static_cast<int>(students.size())); //explicitly casting the value from size_t to int

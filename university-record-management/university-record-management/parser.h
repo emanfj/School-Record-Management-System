@@ -69,10 +69,10 @@ std::vector<Book> readBookCSV(const string& filename)
 
 		int id = std::stoi(words[0]);
 		string title = words[1];
-		string authors = words[2];
-		string publishing_year = words[3];
+		string author = words[2];
+		int publishing_year = stoi(words[3]);
 		bool isAvailable = words[4] == "true" ? true : false; //not sure how this works
-		books.emplace_back(id, title, authors, publishing_year, isAvailable);
+		books.emplace_back(id, title, author, publishing_year, isAvailable);
 	}
 
 	file.close();
