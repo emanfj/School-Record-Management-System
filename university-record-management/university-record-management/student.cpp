@@ -22,7 +22,7 @@ void Student::print() const {
     std::cout << "ID: " << getId() << "\nName: " << getName() << "\nAge: " << getAge() << "\nGrade: " << getGrade() << std::endl;
 }
 
-//function to retrieve and print student details by name (assuming students have a unique name)
+//function to retrieve and print student details by name
 void Student::retrieveAndPrintStudentDetails(const HashTable<Student>& studentTable) {
     std::string studentName;
 
@@ -39,12 +39,23 @@ void Student::retrieveAndPrintStudentDetails(const HashTable<Student>& studentTa
         return;
     }
 
-    //fetch students and print details
+    //fetch students
     std::vector<Student> students = avlTree->getValues();
+    bool studentFound = false;
+
+    // Loop through students and find the exact match
     for (int i = 0; i < students.size(); ++i) {
-        std::cout << "\nStudent details for " << studentName << ":" << std::endl;
-        students[i].print();
-        std::cout << std::endl;
+        if (students[i].getName() == studentName) {
+            std::cout << "\nStudent details for " << studentName << ":" << std::endl;
+            students[i].print();
+            std::cout << std::endl;
+            studentFound = true;
+            break;
+        }
+    }
+
+    if (!studentFound) {
+        std::cout << "\nStudent with name " << studentName << " not found in the AVL Tree." << std::endl;
     }
 }
 
@@ -58,6 +69,8 @@ void Student::retrieveAndPrintStudentsByAge(const HashTable<Student>& studentTab
 
     // get all items from the hash table
     std::vector<HashTable<Student>::Item*> items = studentTable.getItems();
+
+    bool foundStudentOfGivenAge = false;  // Initialize as false
 
     // iterate through the hash table to find the students of a particular age
     for (int i = 0; i < items.size(); i++)
@@ -75,9 +88,15 @@ void Student::retrieveAndPrintStudentsByAge(const HashTable<Student>& studentTab
                 if (students[j].getAge() == age)
                 {
                     std::cout << students[j] << std::endl;
+                    foundStudentOfGivenAge = true;  // Mark the flag as true if a student is found
                 }
             }
         }
+    }
+
+    // If no student is found of the given age, print a message
+    if (!foundStudentOfGivenAge) {
+        std::cout << "No student found with the age of " << age << "." << std::endl;
     }
 }
 
@@ -88,22 +107,32 @@ void Student::retrieveAndPrintStudentsByGrade(const HashTable<Student>& studentT
     std::cout << "----------------------------------------------------\n";
     std::cout << "Enter the grade of the students to retrieve details: ";
     std::cin >> grade;
+
     std::vector<HashTable<Student>::Item*> items = studentTable.getItems();
+
+    bool foundStudentOfGivenGrade = false;  // Initialize as false
+
     for (int i = 0; i < items.size(); ++i) {
         AVLTree<Student>* avlTree = items[i]->getHashValue();
-        if (avlTree != nullptr) 
+        if (avlTree != nullptr)
         {
             std::vector<Student> studentsInTree = avlTree->getValues();
-            for (int j = 0; j < studentsInTree.size(); ++j) 
+            for (int j = 0; j < studentsInTree.size(); ++j)
             {
-                if (studentsInTree[j].getGrade() == grade) 
+                if (studentsInTree[j].getGrade() == grade)
                 {
                     std::cout << "\nStudent details for Grade " << grade << ":" << std::endl;
                     studentsInTree[j].print();
                     std::cout << std::endl;
+                    foundStudentOfGivenGrade = true;  // Mark the flag as true if a student is found
                 }
             }
         }
+    }
+
+    // If no student is found of the given grade, print a message
+    if (!foundStudentOfGivenGrade) {
+        std::cout << "No student found in Grade " << grade << "." << std::endl;
     }
 }
 
@@ -136,7 +165,7 @@ void Student::printAgeFrequency(const HashTable<Student>& studentTable) {
     std::cout << "----------------------------------------\n";
     std::cout << "Age frequency for grade " << grade << ":\n";
     for (int i = 0; i < 7; ++i) {
-        std::cout << i + 13 << ": " << ageFrequencies[i] << "\n";
+        std::cout << "Age " << i + 13 << ": " << ageFrequencies[i] << " students\n";
     }
 }
 
