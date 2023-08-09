@@ -27,8 +27,8 @@ std::string getCurrentDate() {
 
     //convert it to a struct tm (time structure)
     std::tm now_tm;
-    localtime_s(&now_tm, &now_time);
-
+    //localtime_s(&now_tm, &now_time);
+    now_tm = *std::localtime(&now_time);
     //prepare a string stream
     std::ostringstream date_stream;
 
@@ -52,7 +52,8 @@ std::string getTwoWeeksLaterDate()
 
     //convert it to a struct tm
     std::tm due_tm;
-    localtime_s(&due_tm, &due_time);
+    //localtime_s(&due_tm, &due_time);
+    due_tm = *std::localtime(&due_time);
 
     //prepare a string stream
     std::ostringstream date_stream;
