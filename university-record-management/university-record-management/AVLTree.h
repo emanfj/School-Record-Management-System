@@ -3,6 +3,7 @@
 #define AVLTREES_H
 
 #include <algorithm>
+#include <vector>
 #include <iostream>
 using namespace std;
 // #include "Hash_Table.h"
@@ -39,7 +40,7 @@ private:
     avl_node *remove(avl_node *, T);
     bool boolSearch(avl_node *, T);
     void print_inOrder(avl_node *);               // function to print the AVL tree elements in sorted order
-    void getValues(avl_node *, std::vector<T> &); // function to return all the values of the avl tree
+    void getValuesPriv(avl_node *, vector<T> &); // function to return all the values of the avl tree
     T *search(avl_node *, const T &);
 
 public:
@@ -82,10 +83,10 @@ public:
     }
 
     // public interface to return all values of the avl tree
-    std::vector<T> getValues()
+    vector<T> getValues()
     {
-        std::vector<T> values;
-        getValues(root, values);
+        vector<T> values;
+        getValuesPriv(root, values);
         return values;
     }
 
@@ -334,14 +335,14 @@ void AVLTree<T>::print_inOrder(avl_node *node)
 }
 
 template <typename T>
-void AVLTree<T>::getValues(avl_node *node, std::vector<T> &values)
+void AVLTree<T>::getValuesPriv(avl_node *node, vector<T> &values)
 {
     if (node != nullptr)
     {
         // inorder traversal
-        getValues(node->left, values);
+        getValuesPriv(node->left, values);
         values.push_back(node->key);
-        getValues(node->right, values);
+        getValuesPriv(node->right, values);
     }
 }
 

@@ -122,7 +122,7 @@ public:
         int index = hashFunction(key);
         Item *current_item = items[index];
 
-        if (current_item != nullptr && current_item->key == key)
+        if (current_item != nullptr && current_item->getKey() == key)
         {
             return current_item->getHashValue();
         }
@@ -170,13 +170,13 @@ public:
         int index = hashFunction(key);
         Item *current_item = items[index];
 
-        if (current_item != nullptr && current_item->key == key)
+        if (current_item != nullptr && current_item->getKey() == key)
         {
             current_item->getHashValue()->remove(value);// using AVL tree remove function
             // delete the tree and the item if the tree becomes empty after removal
             if (current_item->getHashValue()->isEmpty()) // using AVL tree isEmpty function
             {
-                delete current_item->value;
+                delete current_item->getHashValue();
                 delete current_item;
                 items[index] = nullptr;
                 count--;

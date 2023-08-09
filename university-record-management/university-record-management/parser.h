@@ -4,9 +4,13 @@
 #include <vector>
 #include <iostream>
 
+/*
 #include "student.h"
 #include "book.h"
-#include "borrowed_book.h"
+#include "borrowed_book.h"*/
+class Student;
+class Book;
+class BorrowedBook;
 
 using namespace std;
 

@@ -6,7 +6,23 @@
 #include <string>
 #include <iostream>
 
-class Student {
+class Student;  // forward declaration of Student class
+
+// operator overloading for comparison operators
+bool operator<(const Student& lhs, const Student& rhs);
+bool operator>(const Student& lhs, const Student& rhs);
+bool operator<=(const Student& lhs, const Student& rhs);
+bool operator>=(const Student& lhs, const Student& rhs);
+bool operator==(const Student& lhs, const Student& rhs);
+bool operator!=(const Student& lhs, const Student& rhs);
+
+// operator overloading for output stream operator
+std::ostream& operator<<(std::ostream& os, const Student& student);
+// operator overloading for input stream operator
+std::istream& operator>>(std::istream& is, Student& student);
+
+class Student 
+{
 private:
     int id;
     std::string name;
@@ -24,6 +40,12 @@ public:
     int getAge() const { return age; }
     int getGrade() const { return grade; }
 
+    // setters
+    void setId(int newId) { id = newId; }
+    void setName(const std::string& newName) { name = newName; }
+    void setAge(int newAge) { age = newAge; }
+    void setGrade(int newGrade) { grade = newGrade; }
+
     // method to print out student details
     void print() const {
         std::cout << "ID: " << id << "\nName: " << name << "\nAge: " << age << "\nGrade: " << grade << std::endl;
@@ -33,27 +55,27 @@ public:
 
 // operator overloading for comparison operators
 bool operator<(const Student& lhs, const Student& rhs) {
-    return lhs.getId() < rhs.getId();
+    return lhs.getName() < rhs.getName();
 }
 
 bool operator>(const Student& lhs, const Student& rhs) {
-    return lhs.getId() > rhs.getId();
+    return lhs.getName() > rhs.getName();
 }
 
 bool operator<=(const Student& lhs, const Student& rhs) {
-    return lhs.getId() <= rhs.getId();
+    return lhs.getName() <= rhs.getName();
 }
 
 bool operator>=(const Student& lhs, const Student& rhs) {
-    return lhs.getId() >= rhs.getId();
+    return lhs.getName() >= rhs.getName();
 }
 
 bool operator==(const Student& lhs, const Student& rhs) {
-    return lhs.getId() == rhs.getId();
+    return lhs.getName() == rhs.getName();
 }
 
 bool operator!=(const Student& lhs, const Student& rhs) {
-    return lhs.getId() != rhs.getId();
+    return lhs.getName() != rhs.getName();
 }
 
 // operator overloading for output stream operator
@@ -62,4 +84,30 @@ std::ostream& operator<<(std::ostream& os, const Student& student) {
     return os;
 }
 
+// operator overloading for input stream operator
+std::istream& operator>>(std::istream& is, Student& student) {
+    int id;
+    std::string name;
+    int age;
+    int grade;
+
+    std::cout << "Enter Student ID: ";
+    is >> id;
+    student.setId(id);
+
+    std::cout << "Enter Student Name: ";
+    is.ignore(); // clear the newline from the buffer
+    std::getline(is, name);
+    student.setName(name);
+
+    std::cout << "Enter Student Age: ";
+    is >> age;
+    student.setAge(age);
+
+    std::cout << "Enter Student Grade: ";
+    is >> grade;
+    student.setGrade(grade);
+
+    return is;
+}
 #endif
