@@ -7,7 +7,25 @@
 
 #include "AVLTree.h"
 #include "Hash_Table.h"
-// #include "utilities.h"
+//#include "utilities.h"
+
+//forward declare the Book class
+class Book;
+
+//forward declarations for overloaded functions
+//comparison operators
+bool operator<(const Book& lhs, const Book& rhs);
+bool operator>(const Book& lhs, const Book& rhs);
+bool operator<=(const Book& lhs, const Book& rhs);
+bool operator>=(const Book& lhs, const Book& rhs);
+bool operator==(const Book& lhs, const Book& rhs);
+bool operator!=(const Book& lhs, const Book& rhs);
+
+//output stream operator
+std::ostream& operator<<(std::ostream& os, const Book& book);
+
+//input stream operator
+std::istream& operator>>(std::istream& is, Book& book);
 
 class Book
 {
@@ -64,44 +82,71 @@ public:
         }
     }
 
-    // checks if a book is available or not
-    bool isBookAvailable(HashTable<Book> &bookTable, const string &title)
+    /*
+    *     //ITERATIVE AVL SEARCHING
+
+        bool isBookAvailable(HashTable<Book>& bookTable, const string& title)
     {
         // get the AVL tree corresponding to the title
-        AVLTree<Book> *tree = bookTable.search(title);
+        AVLTree<Book>* tree = bookTable.search(title);
+
         if (tree)
         {
-            return getAvailability();
+            // get all books in the AVL tree
+            std::vector<Book> books = tree->getValues();
+
+            // check each book for matching title
+            for (inr i = 0; i < books.size(); ++i) 
+            {
+                const Book& book = books[i];
+                if (book.getTitle() == title)
+                {
+                    return book.getAvailability();
+                }
+            }
         }
 
-        // if (tree)
-        // {
-        //     //search for the book in the tree
-        //     Book* book = tree->search(title);
-
-        //     if (book)
-        //     {
-        //         //if the book is available check if it's available
-        //         return getAvailability();
-        //     }
-        // }
-
-        // if the tree is not found or the book is not found in the tree
         return false; // book not found or not available
+    }*/
+
+    // checks if a book is available or not
+    //logarithmic search for avl
+    bool isBookAvailable(HashTable<Book>& bookTable, const string& title)
+    {
+        //creating a dummy book with the desired title
+        Book dummyBook(-1, title, "", -1, false, 0); //default values for other attributes
+
+        //search for the AVL tree using the title (hashed value)
+        AVLTree<Book>* tree = bookTable.search(title);
+
+        if (tree)
+        {
+            //search the AVL tree using the dummy book
+            //avl tree search function expects a book object
+            Book* foundBook = tree->search(dummyBook);
+
+            //if the book is found return its availability
+            if (foundBook)
+            {
+                return foundBook->getAvailability();
+            }
+        }
+
+        return false; //book not found or not available
     }
 
-    // retrieve books that are set as available
-    void retrieveAndPrintAvailableBooks(HashTable<Book> &bookTable)
+    // retrieve books that are set as available 
+    void retrieveAndPrintAvailableBooks(HashTable<Book>& bookTable)
     {
         cout << "Available Books:" << endl;
 
         // get all items from the hash table
-        std::vector<HashTable<Book>::Item *> items = bookTable.getItems();
+        std::vector<HashTable<Book>::Item*> items = bookTable.getItems();
 
         // iterate through the hash table to find the available books
         for (int i = 0; i < items.size(); i++)
         {
-            AVLTree<Book> *avlTree = items[i]->value; // Access the 'value' field of the Item
+            AVLTree<Book>* avlTree = items[i]->getHashValue();
 
             if (avlTree != nullptr)
             {
@@ -110,54 +155,59 @@ public:
 
                 // loop over the books and print the ones that are available
                 for (int j = 0; j < books.size(); j++)
+                {
                     if (books[j].getAvailability())
-                        cout << books[j] << endl;
+                    {
+                        std::cout << books[j] << endl;
+                    }
+                }
             }
         }
     }
+
 };
 
 // operator overloading for comparison operators
-bool operator<(const Book &lhs, const Book &rhs)
+bool operator<(const Book& lhs, const Book& rhs)
 {
-    return lhs.getId() < rhs.getId();
+    return lhs.getTitle() < rhs.getTitle();
 }
 
-bool operator>(const Book &lhs, const Book &rhs)
+bool operator>(const Book& lhs, const Book& rhs)
 {
-    return lhs.getId() > rhs.getId();
+    return lhs.getTitle() > rhs.getTitle();
 }
 
-bool operator<=(const Book &lhs, const Book &rhs)
+bool operator<=(const Book& lhs, const Book& rhs)
 {
-    return lhs.getId() <= rhs.getId();
+    return lhs.getTitle() <= rhs.getTitle();
 }
 
-bool operator>=(const Book &lhs, const Book &rhs)
+bool operator>=(const Book& lhs, const Book& rhs)
 {
-    return lhs.getId() >= rhs.getId();
+    return lhs.getTitle() >= rhs.getTitle();
 }
 
-bool operator==(const Book &lhs, const Book &rhs)
+bool operator==(const Book& lhs, const Book& rhs)
 {
-    return lhs.getId() == rhs.getId();
+    return lhs.getTitle() == rhs.getTitle();
 }
 
-bool operator!=(const Book &lhs, const Book &rhs)
+bool operator!=(const Book& lhs, const Book& rhs)
 {
-    return lhs.getId() != rhs.getId();
+    return lhs.getTitle() != rhs.getTitle();
 }
 
 // operator overloading for output stream operator
-std::ostream &operator<<(std::ostream &os, const Book &book)
+std::ostream& operator<<(std::ostream& os, const Book& book)
 {
     os << "\nBook ID: " << book.getId() << "\nTitle: " << book.getTitle() << "\nPublishing Year: " << book.getYear()
-       << "\nBook availability status: " << std::boolalpha << book.getAvailability() << "\nAuthor: " << book.getAuthor()
-       << "\nQuantity: " << book.getQuantity() << std::endl;
+        << "\nBook availability status: " << std::boolalpha << book.getAvailability() << "\nAuthor: " << book.getAuthor()
+        << "\nQuantity: " << book.getQuantity() << std::endl;
     return os;
 }
 
-std::istream &operator>>(std::istream &is, Book &book)
+std::istream& operator>>(std::istream& is, Book& book)
 {
     int id;
     std::string title;

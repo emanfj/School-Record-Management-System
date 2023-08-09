@@ -15,14 +15,27 @@ private:
     // struct for each hash table entry
     struct Item
     {
+    private:
         std::string key;
         // an AVL Tree instance for each hash table entry
-        AVLTree<ValueType> *value;
-        Item(const std::string &key, ValueType value) : key(key), value(new AVLTree<ValueType>())
+        AVLTree<ValueType>* value;
+
+    public:
+        Item(const std::string& key, ValueType value) : key(key), value(new AVLTree<ValueType>())
         {
             // values stored in AVL tree nodes
             // insert function of AVLTree template class is called here
             this->value->insert(value);
+        }
+
+        AVLTree<ValueType>* getHashValue() const
+        {
+            return value;
+        }
+
+        std::string getKey() const
+        {
+            return key;
         }
     };
 
@@ -61,7 +74,7 @@ public:
             Item *item = items[i];
             if (item != nullptr)
             {
-                delete item->value; // delete the avl tree
+                delete item->getHashValue(); // delete the avl tree
                 delete item;
             }
         }
@@ -99,7 +112,7 @@ public:
         else
         {
             // key already exists => just insert the value to the existing AVL tree.
-            current_item->value->insert(value);
+            current_item->getHashValue()->insert(value);
         }
     }
 
@@ -111,7 +124,7 @@ public:
 
         if (current_item != nullptr && current_item->key == key)
         {
-            return current_item->value;
+            return current_item->getHashValue();
         }
 
         return nullptr;
@@ -146,7 +159,7 @@ public:
                 // value is the actual data the table is storing
                 std::cout << "-----------------------------\n";
                 std::cout << "Index:" << i << "\t Values: ";
-                items[i]->value->print_inOrder();
+                items[i]->getHashValue()->print_inOrder();  //using getter here to avoid accessing pvt member directly
                 std::cout << "\n";
             }
         }
@@ -159,9 +172,9 @@ public:
 
         if (current_item != nullptr && current_item->key == key)
         {
-            current_item->value->remove(value); // using AVL tree remove function
+            current_item->getHashValue()->remove(value);// using AVL tree remove function
             // delete the tree and the item if the tree becomes empty after removal
-            if (current_item->value->isEmpty()) // using AVL tree isEmpty function
+            if (current_item->getHashValue()->isEmpty()) // using AVL tree isEmpty function
             {
                 delete current_item->value;
                 delete current_item;

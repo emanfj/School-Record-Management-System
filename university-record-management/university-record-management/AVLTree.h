@@ -43,6 +43,7 @@ private:
     T *search(avl_node *, const T &);
 
 public:
+
     // public constructor for avl tree
     AVLTree() : root(nullptr) {}
 
