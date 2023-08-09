@@ -45,8 +45,8 @@ void Book::updateAvailabilityStatus()
    //logarithmic search for avl
 bool Book::isBookAvailable(const HashTable<Book>& bookTable, const std::string& title)
 {
-    // Creating a dummy book with the desired title
-    Book dummyBook(-1, title, "", -1, false, 0); //default values for other attributes
+    //creating a dummy book with the given title
+    Book tempBook(-1, title, "", -1, false, 0); //default values for other attributes
 
     // Search for the AVL tree using the title (hashed value)
     AVLTree<Book>* tree = bookTable.search(title);
@@ -55,7 +55,7 @@ bool Book::isBookAvailable(const HashTable<Book>& bookTable, const std::string& 
     {
         // Search the AVL tree using the dummy book
         // AVL tree search function expects a book object
-        Book* foundBook = tree->search(dummyBook);
+        Book* foundBook = tree->search(tempBook);
 
         // If the book is found, return its availability
         if (foundBook)
@@ -94,6 +94,35 @@ void Book::retrieveAndPrintAvailableBooks(HashTable<Book>& bookTable)
                     std::cout << books[j] << endl;
                 }
             }
+        }
+    }
+}
+
+void Book::retrieveBooksByAuthor(const HashTable<Book>& bookTable) {
+    std::string author;
+    std::cout << "Enter the name of the author: ";
+    std::cin.ignore();  //clear any newline left in the buffer
+    std::getline(std::cin, author);
+
+    std::vector<Book> booksByAuthor;  //to store the books by the specified author
+
+    //assuming you have getAllValues function implemented as discussed before
+    std::vector<Book> allBooks = bookTable.getAllValues();
+
+    //loop through all books and check if the author matches
+    for (int i = 0; i < allBooks.size(); i++) {
+        if (allBooks[i].getAuthor() == author) {
+            booksByAuthor.push_back(allBooks[i]);
+        }
+    }
+
+    if (booksByAuthor.empty()) {
+        std::cout << "\nNo books found by the author " << author << ".\n";
+    }
+    else {
+        std::cout << "\nBooks by " << author << " in our inventory:\n";
+        for (int i = 0; i < booksByAuthor.size(); i++) {
+            std::cout << booksByAuthor[i].getTitle() << "\n";  
         }
     }
 }

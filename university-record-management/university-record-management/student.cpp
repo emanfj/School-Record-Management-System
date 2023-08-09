@@ -19,8 +19,126 @@ void Student::setGrade(int newGrade) { grade = newGrade; }
 
 // method to print out student details
 void Student::print() const {
-    std::cout << "ID: " << id << "\nName: " << name << "\nAge: " << age << "\nGrade: " << grade << std::endl;
+    std::cout << "ID: " << getId() << "\nName: " << getName() << "\nAge: " << getAge() << "\nGrade: " << getGrade() << std::endl;
 }
+
+//function to retrieve and print student details by name (assuming students have a unique name)
+void Student::retrieveAndPrintStudentDetails(const HashTable<Student>& studentTable) {
+    std::string studentName;
+
+    //prompt the user for the student's name
+    std::cout << "Enter the name of the student to retrieve details: ";
+    std::cin.clear(); //clear any errors on the stream
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //ignore up to the newline
+    std::getline(std::cin, studentName);
+
+    AVLTree<Student>* avlTree = studentTable.search(studentName);
+    if (avlTree == nullptr) {
+        std::cout << "\nStudent with name " << studentName << " not found." << std::endl;
+        return;
+    }
+
+    //fetch students and print details
+    std::vector<Student> students = avlTree->getValues();
+    for (int i = 0; i < students.size(); ++i) {
+        std::cout << "\nStudent details for " << studentName << ":" << std::endl;
+        students[i].print();
+        std::cout << std::endl;
+    }
+}
+
+void Student::retrieveAndPrintStudentsByAge(const HashTable<Student>& studentTable) {
+    int age;
+
+    //prompt the user for age
+    std::cout << "Enter the age of the students to retrieve details: ";
+    std::cin >> age;
+
+    // get all items from the hash table
+    std::vector<HashTable<Student>::Item*> items = studentTable.getItems();
+
+    // iterate through the hash table to find the students of a particular age
+    for (int i = 0; i < items.size(); i++)
+    {
+        AVLTree<Student>* avlTree = items[i]->getHashValue();
+
+        if (avlTree != nullptr)
+        {
+            // get all students from the AVL tree
+            std::vector<Student> students = avlTree->getValues();
+
+            // loop over the students and print the ones that match the given age
+            for (int j = 0; j < students.size(); j++)
+            {
+                if (students[j].getAge() == age)
+                {
+                    std::cout << students[j] << std::endl;
+                }
+            }
+        }
+    }
+}
+
+void Student::retrieveAndPrintStudentsByGrade(const HashTable<Student>& studentTable) {
+    int grade;
+
+    //prompt the user for grade
+    std::cout << "Enter the grade of the students to retrieve details: ";
+    std::cin >> grade;
+
+    std::vector<HashTable<Student>::Item*> items = studentTable.getItems();
+    for (int i = 0; i < items.size(); ++i) {
+        AVLTree<Student>* avlTree = items[i]->getHashValue();
+        if (avlTree != nullptr) 
+        {
+            std::vector<Student> studentsInTree = avlTree->getValues();
+            for (int j = 0; j < studentsInTree.size(); ++j) 
+            {
+                if (studentsInTree[j].getGrade() == grade) 
+                {
+                    std::cout << "\nStudent details for Grade " << grade << ":" << std::endl;
+                    studentsInTree[j].print();
+                    std::cout << std::endl;
+                }
+            }
+        }
+    }
+}
+
+void Student::printAgeFrequency(const HashTable<Student>& studentTable) {
+    //create an array to store frequency for ages from 13 to 19.
+    int ageFrequencies[7] = { 0 }; //initialize all to zero
+
+    //prompt user for grade information
+    int grade;
+    std::cout << "Enter the grade level: ";
+    std::cin >> grade;
+    while (std::cin.fail() || grade < 9 || grade > 12) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Invalid input. Please enter a valid grade level (1-12): ";
+        std::cin >> grade;
+    }
+
+    //get all students from the hash table
+    std::vector<Student> students = studentTable.getAllValues();
+
+    //iterate through each student and count the frequency for the age if they are in the specified grade
+    for (int i = 0; i < students.size(); ++i) {
+        if (students[i].getGrade() == grade && students[i].getAge() >= 13 && students[i].getAge() <= 19) {
+            ageFrequencies[students[i].getAge() - 13]++;
+        }
+    }
+
+    //print out the frequencies for each age from 13 to 19
+    std::cout << "Age frequency for grade " << grade << ":\n";
+    for (int i = 0; i < 7; ++i) {
+        std::cout << i + 13 << ": " << ageFrequencies[i] << "\n";
+    }
+}
+
+
+
 
 // operator overloading for comparison operators
 bool operator<(const Student& lhs, const Student& rhs) {

@@ -142,7 +142,62 @@ void BorrowedBook::returnBook(HashTable<Book>& bookInventory, HashTable<Borrowed
     }
 
     //if the borrowed book is not found
-    std::cout << "Sorry! The book you returned was not found in the borrowed book inventory.\n";
+    std::cout << "Sorry! This book has not yet been borrowed.\n";
+}
+
+std::vector<std::string> BorrowedBook::getBorrowedBooks(const HashTable<BorrowedBook>& borrowedBooks) {
+    std::vector<std::string> borrowedBookTitles;
+
+    for (const auto& item : borrowedBooks.getItems()) {
+        AVLTree<BorrowedBook>* avlTree = item->getHashValue();
+        if (avlTree != nullptr) 
+        {
+            std::vector<BorrowedBook> allBorrowedBooks = avlTree->getValues();
+            for (int i = 0; i < allBorrowedBooks.size(); i++) 
+            {
+                borrowedBookTitles.push_back(allBorrowedBooks[i].getTitle());
+            }
+        }
+
+    }
+
+    return borrowedBookTitles;
+}
+
+// retrieve details of the borrower who borrowed the specified book
+void BorrowedBook::retrieveBorrowerDetailsForBook(const HashTable<BorrowedBook>& borrowedBooks) {
+    std::string bookTitle;
+
+    //prompt the user for the book title
+    std::cout << "Enter the title of the book to retrieve details: ";
+    std::cin.clear(); // Clear any errors on the stream, if any.
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //ignore up to the newline
+    std::getline(std::cin, bookTitle);
+
+    //creating a dummy BorrowedBook with the given title
+    BorrowedBook tempBorrowedBook(-1, bookTitle, "", "", ""); //default values for other attributes
+
+    //search for the AVL tree using the title (hashed value)
+    AVLTree<BorrowedBook>* tree = borrowedBooks.search(bookTitle);
+
+    if (tree)
+    {
+        //search the AVL tree using the dummy borrowed book
+        BorrowedBook* foundBorrowedBook = tree->search(tempBorrowedBook);
+
+        //if the borrowed book is found display its details
+        if (foundBorrowedBook)
+        {
+            std::cout << std::endl;
+            std::cout << "Book Title: " << foundBorrowedBook->getTitle() << std::endl;
+            std::cout << "Borrower: " << foundBorrowedBook->getBorrower() << std::endl;
+            std::cout << "Issue Date: " << foundBorrowedBook->getIssueDate() << std::endl;
+            std::cout << "Due Date: " << foundBorrowedBook->getDueDate() << std::endl;
+            return;
+        }
+    }
+
+    std::cout << "Book titled '" << bookTitle << "' is not borrowed." << std::endl;
 }
 
 //implementations of operator overloading

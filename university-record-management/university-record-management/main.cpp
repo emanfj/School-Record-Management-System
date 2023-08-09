@@ -14,6 +14,7 @@ using namespace std;
 
 int main()
 {
+
     // load data from CSV files
     vector<Student> students = readStudentCSV("students.csv");
     vector<Book> books = readBookCSV("books.csv");
@@ -28,6 +29,11 @@ int main()
     populateStudentHashTable(studentTable, students);
     populateBookHashTable(bookTable, books);
 
+    //flags to track changes in the hash tables
+    bool studentDataChanged = false;
+    bool bookDataChanged = false;
+    bool borrowedBookDataChanged = false;
+
     int choice;
     do
     {
@@ -35,7 +41,7 @@ int main()
         cout << "1. Student Management System" << endl;
         cout << "2. Library Management System" << endl;
         cout << "0. Exit" << endl;
-        cout << "Enter your choice: ";
+        cout << "\nEnter your choice: ";
         cin >> choice;
         //to handle invalid user input
         if (!cin) //if the stream is in an error state (e.g., because the user didn't input a number)
@@ -56,10 +62,14 @@ int main()
             {
                 cout << "\n\nSTUDENT MANAGEMENT SYSTEM:" << endl;
                 cout << "1. Print Student Data" << endl;
-                //more student-related menu items as needed...
+                cout << "2. Print details of a particular student" << endl;
+                cout << "3. Print details of students of a particular age" << endl;
+                cout << "4. Print details of students of a particular grade levels" << endl;
+                cout << "5. Print age frequency for any grade level" << endl;
                 cout << "0. Go Back to Main Menu" << endl;
-                cout << "Enter your choice: ";
+                cout << "\nEnter your choice: ";
                 cin >> studentChoice;
+
                 //to handle invalid user input
                 if (!cin)
                 {
@@ -75,6 +85,25 @@ int main()
                 {
                     cout << "STUDENT DATA:" << endl;
                     studentTable.printTable();
+                }
+                break;
+                case 2:
+                {
+                    Student::retrieveAndPrintStudentDetails(studentTable);
+                }
+                break;
+                case 3:
+                {
+                    Student::retrieveAndPrintStudentsByAge(studentTable);
+                }
+                break;
+                case 4:
+                {
+                    Student::retrieveAndPrintStudentsByGrade(studentTable);
+                }
+                case 5:
+                {
+                    Student::printAgeFrequency(studentTable);
                 }
                 break;
                     //more cases
@@ -97,9 +126,12 @@ int main()
                 cout << "3. Print Available Books" << endl;
                 cout << "4. Borrow a book" << endl;
                 cout << "5. Return a borrowed book" << endl;
+                cout << "6. Print information of borrowed books" << endl;
+                cout << "7. Print borrower details for a book" << endl;
+                cout << "8. Print all books written by the same author " << endl;
                 //more book related functions
                 cout << "0. Go Back to Main Menu" << endl;
-                cout << "Enter your choice: ";
+                cout << "\nEnter your choice: ";
                 cin >> libraryChoice;
                 //to handle invalid user input
                 if (!cin)
@@ -138,15 +170,43 @@ int main()
                 case 4:
                 {
                     BorrowedBook::borrowBook(bookTable, borrowedBookTable); 
+                    bookDataChanged = true;
+                    borrowedBookDataChanged = true;
                 }
                 break;
                 case 5:
                 {
                     BorrowedBook::returnBook(bookTable, borrowedBookTable); 
+                    bookDataChanged = true;
+                    borrowedBookDataChanged = true;
                 }
                 break;
-
-
+                case 6:
+                {
+                    std::vector<std::string> borrowedBooksList = BorrowedBook::getBorrowedBooks(borrowedBookTable);
+                    if (borrowedBooksList.empty()) 
+                    {
+                        std::cout << "No books have been borrowed.\n";
+                    }
+                    else 
+                    {
+                        std::cout << "\nBorrowed Books:\n";
+                        for (int i = 0; i < borrowedBooksList.size(); i++) 
+                        {
+                            std::cout << i + 1 << ". " << borrowedBooksList[i] << "\n";
+                        }
+                    }
+                }
+                break;
+                case 7:
+                {
+                    BorrowedBook::retrieveBorrowerDetailsForBook(borrowedBookTable);
+                }
+                break;
+                case 8:
+                {
+                    Book::retrieveBooksByAuthor(bookTable);
+                }
                 case 0:
                     break;
                 default:
@@ -164,7 +224,22 @@ int main()
 
     } while (choice != 0);
 
-    //before exiting program write all hash tables into respective csv files with updated data
+    //before exiting the session write all hash tables into respective csv files with updated data
     //check if said hash table has had any changes (if possible)
+    if (studentDataChanged) 
+    {
+        writeStudentCSV(studentTable,"students.csv");  
+    }
+
+    if (bookDataChanged) 
+    {
+        writeBookCSV(bookTable, "books.csv");  
+    }
+
+    if (borrowedBookDataChanged) 
+    {
+        writeBorrowedBookCSV( borrowedBookTable, "borrowed_books.csv");  
+    }
+
     return 0;
 }

@@ -59,8 +59,11 @@ public:
     //member functions
     void print() const;
     void updateAvailabilityStatus();
+    //static because these methods arent instance specific
     static bool isBookAvailable(const HashTable<Book>& bookTable, const std::string& title);
-    static void retrieveAndPrintAvailableBooks(HashTable<Book>& bookTable); //static because the method isnt instance specific
+    static void retrieveAndPrintAvailableBooks(HashTable<Book>& bookTable); 
+    static void retrieveBooksByAuthor(const HashTable<Book>& bookTable);
+
 };
 
 

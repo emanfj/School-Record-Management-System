@@ -59,6 +59,7 @@ private:
 
 public:
     friend class Book;
+    friend class Student;
     // constructor for hash table class
     HashTable(int size) : count(0)
     {
@@ -79,7 +80,8 @@ public:
             }
         }
     }
-
+    
+    //returns a vector of pointers to Item instances.
     std::vector<Item *> getItems() const
     {
         std::vector<Item *> allItems;
@@ -94,6 +96,21 @@ public:
         }
 
         return allItems;
+    }
+
+    //to retrieve all the ValueType objects stored across all the AVL trees in the hash table
+    std::vector<ValueType> getAllValues() const {
+        std::vector<ValueType> values;
+        for (const Item* item : items) {
+            if (item != nullptr) {
+                AVLTree<ValueType>* avlTree = item->getHashValue();
+                if (avlTree != nullptr) {
+                    std::vector<ValueType> valuesFromTree = avlTree->getValues();
+                    values.insert(values.end(), valuesFromTree.begin(), valuesFromTree.end());
+                }
+            }
+        }
+        return values; // return the vector containing all values
     }
 
     // function to insert data at a hash table index

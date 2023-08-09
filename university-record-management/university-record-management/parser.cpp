@@ -146,3 +146,78 @@ vector<BorrowedBook> readBorrowedCSV(const string& filename)
 	file.close();
 	return borrowedBooks;
 }
+
+//write student data from hash table to csv file
+void writeStudentCSV(const HashTable<Student>& studentTable, const std::string& filename) {
+	std::ofstream file(filename);
+
+	if (!file.is_open()) {
+		std::cout << "Could not open file for writing.\n";
+		return;
+	}
+
+	// Write header
+	file << "ID,Name,Age,Grade\n";
+
+	std::vector<Student> students = studentTable.getAllValues();
+	for (const Student& student : students) 
+	{
+		file << student.getId() << ","
+			<< student.getName() << ","
+			<< student.getAge() << ","
+			<< student.getGrade() << "\n";
+	}
+
+	file.close();
+}
+
+// Write book data from hash table to csv file
+void writeBookCSV(const HashTable<Book>& bookTable, const std::string& filename) {
+	std::ofstream file(filename);
+
+	if (!file.is_open()) {
+		std::cout << "Could not open file for writing.\n";
+		return;
+	}
+
+	// Write header
+	file << "ID,Title,Author,Publishing Year,Availability,Quantity\n";
+
+	std::vector<Book> books = bookTable.getAllValues();
+	for (const Book& book : books)
+	{
+		file << book.getId() << ","
+			<< book.getTitle() << ","
+			<< book.getAuthor() << ","
+			<< book.getYear() << ","
+			<< (book.getAvailability() ? "true" : "false") << ","
+			<< book.getQuantity() << "\n";
+	}
+
+	file.close();
+}
+
+// Write borrowed book data from hash table to csv file
+void writeBorrowedBookCSV(const HashTable<BorrowedBook>& borrowedBookTable, const std::string& filename) {
+	std::ofstream file(filename);
+
+	if (!file.is_open()) {
+		std::cout << "Could not open file for writing.\n";
+		return;
+	}
+
+	// Write header
+	file << "ID,Title,Borrower,Issue Date,Due Date\n";
+
+	std::vector<BorrowedBook> borrowedBooks = borrowedBookTable.getAllValues();
+	for (const BorrowedBook& borrowed : borrowedBooks)
+	{
+		file << borrowed.getId() << ","
+			<< borrowed.getTitle() << ","
+			<< borrowed.getBorrower() << ","
+			<< borrowed.getIssueDate() << ","
+			<< borrowed.getDueDate() << "\n";
+	}
+
+	file.close();
+}
