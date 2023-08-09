@@ -51,8 +51,8 @@ public:
 
     // Method declarations
     void print() const;
-    void borrowBook(HashTable<Book>& bookInventory, HashTable<BorrowedBook>& borrowedBooks);
-    void returnBook(HashTable<Book>& bookInventory, HashTable<BorrowedBook>& borrowedBooks);
+    static void borrowBook(HashTable<Book>& bookInventory, HashTable<BorrowedBook>& borrowedBooks);
+    static void returnBook(HashTable<Book>& bookInventory, HashTable<BorrowedBook>& borrowedBooks);
 };
 
 

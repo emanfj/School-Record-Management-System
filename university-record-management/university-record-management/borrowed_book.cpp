@@ -29,11 +29,13 @@ void BorrowedBook::print() const
 }
 
 //funtion for borrowing a book from the inventory
-void BorrowedBook::borrowBook(HashTable<Book>& bookInventory, HashTable<BorrowedBook>& borrowedBooks) {
-    std::string bookTitle;
+void BorrowedBook::borrowBook(HashTable<Book>& bookInventory, HashTable<BorrowedBook>& borrowedBooks)
+{   std::string bookTitle;
 
     //prompt the user for a book name
     std::cout << "Enter the name of the book you want to borrow: ";
+    cin.clear(); // Clear any errors on the stream, if any.
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore up to the newline
     std::getline(std::cin, bookTitle);
 
     //get the AVLTree corresponding to the book title
@@ -47,7 +49,7 @@ void BorrowedBook::borrowBook(HashTable<Book>& bookInventory, HashTable<Borrowed
             Book& book = books[i];  //creating a reference to each book object at current index
             //check if this is the book user wants to borrow
             if (book.getTitle() == bookTitle && book.getAvailability() && book.getQuantity() > 0) {
-                std::cout << "The book " << bookTitle << " is available.You can borrow it.\n";
+                std::cout << "\nThe book " << bookTitle << " is available.You can borrow it.\n";
 
                 //reduce the quantity by one
                 book.setQuantity(book.getQuantity() - 1);
@@ -65,13 +67,14 @@ void BorrowedBook::borrowBook(HashTable<Book>& bookInventory, HashTable<Borrowed
                 BorrowedBook newBorrowedBook(book.getId(), book.getTitle(), userName, issue_date, due_date);
                 borrowedBooks.insert(bookTitle, newBorrowedBook);
 
+                std::cout << "The due date for the book would be " << due_date << std::endl;
                 return;
             }
         }
     }
 
     //if the book is not found in the inventory
-    std::cout << "sorry! The book you requested is not available.\n";
+    std::cout << "\nSorry! The book you requested is not available.\n";
 }
 
 //function to return a book to the library
@@ -81,6 +84,8 @@ void BorrowedBook::returnBook(HashTable<Book>& bookInventory, HashTable<Borrowed
 
     //prompt the user for a book name
     std::cout << "Enter the name of the book you want to return: ";
+    cin.clear(); // Clear any errors on the stream, if any.
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore up to the newline
     std::getline(std::cin, bookTitle);
 
     //check if the book exists in the book inventory
@@ -107,7 +112,7 @@ void BorrowedBook::returnBook(HashTable<Book>& bookInventory, HashTable<Borrowed
 
             // Check if this is the borrowed book that the user wants to return
             if (borrowedBook.getTitle() == bookTitle && borrowedBook.getBorrower() == userName) {
-                std::cout << "Borrowed book found. You can return it.\n";
+                std::cout << "\nBorrowed book found. You can return it.\n";
 
                 //remove the returned book from the 'borrowedBooks' hash table
                 borrowedBooks.remove(bookTitle, borrowedBook);

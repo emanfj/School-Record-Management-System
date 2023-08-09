@@ -117,7 +117,7 @@ public:
     }
 
     // to search data in a hash table
-    AVLTree<ValueType> *search(const std::string &key)
+    AVLTree<ValueType> *search(const std::string &key) const
     {
         int index = hashFunction(key);
         Item *current_item = items[index];

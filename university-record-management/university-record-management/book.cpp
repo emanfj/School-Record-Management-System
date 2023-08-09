@@ -43,32 +43,33 @@ void Book::updateAvailabilityStatus()
 
 // checks if a book is available or not
    //logarithmic search for avl
-bool Book::isBookAvailable(HashTable<Book>& bookTable, const string& title)
+bool Book::isBookAvailable(const HashTable<Book>& bookTable, const std::string& title)
 {
-    //creating a dummy book with the desired title
+    // Creating a dummy book with the desired title
     Book dummyBook(-1, title, "", -1, false, 0); //default values for other attributes
 
-    //search for the AVL tree using the title (hashed value)
+    // Search for the AVL tree using the title (hashed value)
     AVLTree<Book>* tree = bookTable.search(title);
 
     if (tree)
     {
-        //search the AVL tree using the dummy book
-        //avl tree search function expects a book object
+        // Search the AVL tree using the dummy book
+        // AVL tree search function expects a book object
         Book* foundBook = tree->search(dummyBook);
 
-        //if the book is found return its availability
+        // If the book is found, return its availability
         if (foundBook)
         {
             return foundBook->getAvailability();
         }
     }
 
-    return false; //book not found or not available
+    return false; // Book not found or not available
 }
 
+
 // retrieve books that are set as available 
-void Book::retrieveAndPrintAvailableBooks(HashTable<Book>& bookTable)
+void Book::retrieveAndPrintAvailableBooks(HashTable<Book>& bookTable) 
 {
     cout << "Available Books:" << endl;
 
