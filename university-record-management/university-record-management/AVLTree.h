@@ -40,7 +40,7 @@ private:
     avl_node *remove(avl_node *, T);
     bool boolSearch(avl_node *, T);
     void print_inOrder(avl_node *);               // function to print the AVL tree elements in sorted order
-    void getValuesPriv(avl_node *, vector<T> &); // function to return all the values of the avl tree
+    void getValuesPriv(avl_node *, vector<T>& ); // function to return all the values of the avl tree
     T *search(avl_node *, const T &);
 
 public:

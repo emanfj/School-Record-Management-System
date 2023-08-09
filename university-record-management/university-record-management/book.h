@@ -9,6 +9,7 @@
 #include "Hash_Table.h"
 //#include "utilities.h"
 
+class Book;
 
 //forward declarations for overloaded functions
 //comparison operators
@@ -36,10 +37,10 @@ private:
     int quantity;
 
 public:
-    // Constructors
+    //constructor
     Book(int id, const std::string& title, const std::string& author, int year, bool isAvailable, int quantity);
 
-    // Getter methods
+    //getter methods
     int getId() const;
     std::string getTitle() const;
     std::string getAuthor() const;
@@ -47,7 +48,7 @@ public:
     bool getAvailability() const;
     int getQuantity() const;
 
-    // Setter methods
+    //setter methods
     void setId(int newId);
     void setTitle(std::string& newTitle);
     void setAuthor(std::string& newAuthor);
@@ -55,7 +56,7 @@ public:
     void setAvailability(bool availability);
     void setQuantity(int newQuantity);
 
-    // Utility methods
+    //member functions
     void print() const;
     void updateAvailabilityStatus();
     bool isBookAvailable(HashTable<Book>& bookTable, const std::string& title);

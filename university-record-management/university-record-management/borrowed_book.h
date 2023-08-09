@@ -1,10 +1,13 @@
 // TEMPLATE FOR BORROWED BOOKS DATA
-
 #ifndef BORROWED_BOOK_H
 #define BORROWED_BOOK_H
 
 #include "utilities.h"
 
+#include "AVLTree.h"
+#include "Hash_Table.h"
+
+class BorrowedBook;
 
 //forward declarations for overloaded operators
 //comparison operators
