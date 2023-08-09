@@ -1,7 +1,7 @@
 # School Record Management System
 
 ## Introduction
-This project provides a system for managing university records, focusing on student and book data. The data is stored in hash tables, with collisions handled by AVL Trees, ensuring balanced searching, insertion, and deletion operations.
+This project provides a system for managing school records, focusing on student and book data. The data is stored in hash tables, with collisions handled by AVL Trees, ensuring balanced searching, insertion, and deletion operations.
 
 ## Features
 ### Student Data Management 🎓: 
