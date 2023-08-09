@@ -18,7 +18,7 @@ private:
         std::string key;
         // an AVL Tree instance for each hash table entry
         AVLTree<ValueType> *value;
-        Item(const std::string& key, ValueType value) : key(key), value(new AVLTree<ValueType>())
+        Item(const std::string &key, ValueType value) : key(key), value(new AVLTree<ValueType>())
         {
             // values stored in AVL tree nodes
             // insert function of AVLTree template class is called here
@@ -30,22 +30,22 @@ private:
     std::vector<Item *> items;
     int count;
 
-    //hash function to calculate the hash table index
-    //BKDR (Brian Kernighan and Dennis Ritchie) hash function
-    unsigned long hashFunction(const std::string& str) const 
+    // hash function to calculate the hash table index
+    // BKDR (Brian Kernighan and Dennis Ritchie) hash function
+    unsigned long hashFunction(const std::string &str) const
     {
-        //unsigned long is used for wider range of values and to avoid negative values
-        unsigned long seed = 131; //prime number seed
-        unsigned long hash = 0;   //hash value updating for each character
-        for (int i = 0; i < str.length(); i++) 
+        // unsigned long is used for wider range of values and to avoid negative values
+        unsigned long seed = 131; // prime number seed
+        unsigned long hash = 0;   // hash value updating for each character
+        for (int i = 0; i < str.length(); i++)
         {
             hash = (hash * seed) + str[i];
         }
         return hash % items.size();
     }
 
-
 public:
+    friend class Book;
     // constructor for hash table class
     HashTable(int size) : count(0)
     {
@@ -58,23 +58,23 @@ public:
     {
         for (int i = 0; i < items.size(); i++)
         {
-            Item* item = items[i];
+            Item *item = items[i];
             if (item != nullptr)
             {
-                delete item->value; //delete the avl tree
+                delete item->value; // delete the avl tree
                 delete item;
             }
         }
     }
 
-    std::vector<Item*> getItems() const 
+    std::vector<Item *> getItems() const
     {
-        std::vector<Item*> allItems;
+        std::vector<Item *> allItems;
 
-        //iterate over all items in the hash table
-        for (int i = 0; i < items.size(); i++) 
+        // iterate over all items in the hash table
+        for (int i = 0; i < items.size(); i++)
         {
-            if (items[i] != nullptr) 
+            if (items[i] != nullptr)
             {
                 allItems.push_back(items[i]);
             }
@@ -83,9 +83,8 @@ public:
         return allItems;
     }
 
-
     // function to insert data at a hash table index
-    void insert(const std::string& key , ValueType value)
+    void insert(const std::string &key, ValueType value)
     {
         // hash index is calculated using hash function
         int index = hashFunction(key);
@@ -105,7 +104,7 @@ public:
     }
 
     // to search data in a hash table
-    AVLTree<ValueType> *search(const std::string& key)
+    AVLTree<ValueType> *search(const std::string &key)
     {
         int index = hashFunction(key);
         Item *current_item = items[index];
@@ -118,9 +117,8 @@ public:
         return nullptr;
     }
 
-
     // prints the data to be searched
-    void printSearch(const std::string& key)
+    void printSearch(const std::string &key)
     {
         AVLTree<ValueType> *avlTree = search(key);
 
@@ -154,16 +152,16 @@ public:
         }
     }
 
-    void remove(const std::string& key, ValueType value)
+    void remove(const std::string &key, ValueType value)
     {
         int index = hashFunction(key);
-        Item* current_item = items[index];
+        Item *current_item = items[index];
 
         if (current_item != nullptr && current_item->key == key)
         {
-            current_item->value->remove(value); //using AVL tree remove function
+            current_item->value->remove(value); // using AVL tree remove function
             // delete the tree and the item if the tree becomes empty after removal
-            if (current_item->value->isEmpty()) //using AVL tree isEmpty function
+            if (current_item->value->isEmpty()) // using AVL tree isEmpty function
             {
                 delete current_item->value;
                 delete current_item;
@@ -172,7 +170,6 @@ public:
             }
         }
     }
-
 };
 
 #endif

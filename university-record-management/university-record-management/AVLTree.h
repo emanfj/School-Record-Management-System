@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <iostream>
 using namespace std;
+// #include "Hash_Table.h"
 
 // defining template class for avl trees
 template <typename T>
@@ -22,7 +23,7 @@ private:
     };
     avl_node *root;
     // helper functions not intended to be called directly
-    //to determine is tree is empty
+    // to determine is tree is empty
     bool isEmpty() const;
     // function to determine height of the tree
     int height(avl_node *);
@@ -34,17 +35,18 @@ private:
     // determine the minimum value node from the avl tree
     avl_node *minValue_node(avl_node *);
     // private declarations
-    avl_node *insert(avl_node *, T );
-    avl_node *remove(avl_node *, T );
-    bool boolSearch(avl_node *, T );
-    void print_inOrder(avl_node *);     // function to print the AVL tree elements in sorted order
-    void getValues(avl_node*, std::vector<T>&);     //function to return all the values of the avl tree
-    T* search(avl_node* , const T&  );
-
+    avl_node *insert(avl_node *, T);
+    avl_node *remove(avl_node *, T);
+    bool boolSearch(avl_node *, T);
+    void print_inOrder(avl_node *);               // function to print the AVL tree elements in sorted order
+    void getValues(avl_node *, std::vector<T> &); // function to return all the values of the avl tree
+    T *search(avl_node *, const T &);
 
 public:
     // public constructor for avl tree
     AVLTree() : root(nullptr) {}
+
+    // friend class HashTable<T>;
 
     // main functions for the public interface
     // input parameters root node and template key data
@@ -74,7 +76,7 @@ public:
     }
 
     // public interface to return all values of the avl tree
-    std::vector<T> getValues() 
+    std::vector<T> getValues()
     {
         std::vector<T> values;
         getValues(root, values);
@@ -82,9 +84,22 @@ public:
     }
 
     // public search method that returns searched node
-    T* search(const T& key)
+    T *search(const T &key)
     {
         return search(root, key);
+    }
+
+    // Function to retrieve the root value of the AVL tree
+    T getRootValue()
+    {
+        if (root)
+        {
+            return root->key;
+        }
+        else
+        {
+            throw std::runtime_error("AVL Tree is empty.");
+        }
     }
 };
 
@@ -98,7 +113,8 @@ int AVLTree<T>::height(avl_node *node)
 }
 
 template <typename T>
-bool AVLTree<T>::isEmpty() const {
+bool AVLTree<T>::isEmpty() const
+{
     return root == nullptr;
 }
 
@@ -312,11 +328,11 @@ void AVLTree<T>::print_inOrder(avl_node *node)
 }
 
 template <typename T>
-void AVLTree<T>::getValues(avl_node* node, std::vector<T>& values) 
+void AVLTree<T>::getValues(avl_node *node, std::vector<T> &values)
 {
-    if (node != nullptr) 
+    if (node != nullptr)
     {
-        //inorder traversal 
+        // inorder traversal
         getValues(node->left, values);
         values.push_back(node->key);
         getValues(node->right, values);
@@ -324,21 +340,24 @@ void AVLTree<T>::getValues(avl_node* node, std::vector<T>& values)
 }
 
 template <typename T>
-T* AVLTree<T>::search(avl_node* node, const T& key) 
+T *AVLTree<T>::search(avl_node *node, const T &key)
 {
-    if (node == NULL) {
+    if (node == NULL)
+    {
         return NULL; // key not found
     }
-    if (key < node->key) {
+    if (key < node->key)
+    {
         return search(node->left, key);
     }
-    else if (key > node->key) {
+    else if (key > node->key)
+    {
         return search(node->right, key);
     }
-    else {
+    else
+    {
         return &(node->key);
     }
 }
-
 
 #endif

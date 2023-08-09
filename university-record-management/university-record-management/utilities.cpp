@@ -1,4 +1,6 @@
 #include "utilities.h"
+#include "parser.h"
+#include <vector>
 
 void populateBookHashTable(HashTable<Book>& bookTable, const vector<Book>& books)
 {
