@@ -92,7 +92,9 @@ std::vector<Book> readBookCSV(const string& filename)
 		string title = words[1];
 		string author = words[2];
 		int publishing_year = stoi(words[3]);
-		bool isAvailable = words[4] == "true" ? true : false;
+		std::string value = words[4];
+		std::transform(value.begin(), value.end(), value.begin(), ::tolower); //transform the whole word into lowercase
+		bool isAvailable = (value == "true");
 		int quantity = stoi(words[5]);
 		books.emplace_back(id, title, author, publishing_year, isAvailable, quantity);
 	}

@@ -24,7 +24,7 @@ void Book::setAuthor(std::string& newAuthor) { this->author = newAuthor; }
 // for printing book details
 void Book::print() const
 {
-    std::cout << "Book ID: " << id << "\nTitle: " << title << "\nPublishing Year: " << publishing_year << "\nBook availability status: " << isAvailable << "\nAuthor: "
+    std::cout << "Book ID: " << id << "\nTitle: " << title << "\nPublishing Year: " << publishing_year << "\nBook availability status: " << boolalpha << isAvailable << "\nAuthor: "
         << author << "\nQuantity: " << quantity << std::endl;
 }
 

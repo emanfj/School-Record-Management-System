@@ -1,111 +1,112 @@
 Book ID,Title,Author,Publishing Year,Availability,Quantity
-1000,To Kill a Mockingbird,Harper Lee,1960,TRUE,7
-1001,1984,George Orwell,1949,TRUE,12
-1002,The Great Gatsby,F. Scott Fitzgerald,1925,TRUE,15
-1003,The Catcher in the Rye,J.D. Salinger,1951,TRUE,9
-1004,The Lord of the Rings,J.R.R. Tolkien,1954,TRUE,11
-1005,The Hobbit,J.R.R. Tolkien,1937,TRUE,13
-1006,The Da Vinci Code,Dan Brown,2003,TRUE,10
-1007,Angels & Demons,Dan Brown,2000,TRUE,8
-1008,Harry Potter and the Sorcerer's Stone,J.K. Rowling,1997,TRUE,15
-1009,Harry Potter and the Chamber of Secrets,J.K. Rowling,1998,TRUE,13
-1010,Harry Potter and the Prisoner of Azkaban,J.K. Rowling,1999,TRUE,14
-1011,Harry Potter and the Goblet of Fire,J.K. Rowling,2000,TRUE,12
-1012,Harry Potter and the Order of the Phoenix,J.K. Rowling,2003,TRUE,16
-1013,Harry Potter and the Half-Blood Prince,J.K. Rowling,2005,TRUE,15
-1014,Harry Potter and the Deathly Hallows,J.K. Rowling,2007,TRUE,17
-1015,The Alchemist,Paulo Coelho,1988,TRUE,11
-1016,Brida,Paulo Coelho,1990,TRUE,9
-1017,The Devil and Miss Prym,Paulo Coelho,2000,TRUE,10
-1018,Eleven Minutes,Paulo Coelho,2003,TRUE,8
-1019,The Valkyries,Paulo Coelho,1992,TRUE,7
-1020,The Old Man and the Sea,Ernest Hemingway,1952,TRUE,14
-1021,The Sun Also Rises,Ernest Hemingway,1926,TRUE,8
-1022,A Farewell to Arms,Ernest Hemingway,1929,TRUE,12
-1023,For Whom the Bell Tolls,Ernest Hemingway,1940,TRUE,11
-1024,The Great Alone,Kristin Hannah,2018,TRUE,9
-1025,The Nightingale,Kristin Hannah,2015,TRUE,13
-1026,Firefly Lane,Kristin Hannah,2008,TRUE,15
-1027,Fly Away,Kristin Hannah,2013,TRUE,10
-1028,The Four Winds,Kristin Hannah,2021,TRUE,12
-1029,The Mystery of Mercy Close,Marian Keyes,2012,TRUE,7
-1030,Watermelon,Marian Keyes,1995,TRUE,14
-1031,Rachel's Holiday,Marian Keyes,1998,TRUE,8
-1032,Last Chance Saloon,Marian Keyes,1999,TRUE,9
-1033,Sushi for Beginners,Marian Keyes,2000,TRUE,11
-1034,The Other Side of the Story,Marian Keyes,2004,TRUE,12
-1035,The Glass Lake,Maeve Binchy,1994,TRUE,15
-1036,Circle of Friends,Maeve Binchy,1990,TRUE,7
-1037,The Copper Beech,Maeve Binchy,1992,TRUE,10
-1038,Firefly Summer,Maeve Binchy,1987,TRUE,13
-1039,Evening Class,Maeve Binchy,1996,TRUE,16
-1040,Pride and Prejudice,Jane Austen,1813,TRUE,10
-1041,Sense and Sensibility,Jane Austen,1811,TRUE,9
-1042,Mansfield Park,Jane Austen,1814,TRUE,11
-1043,Emma,Jane Austen,1815,TRUE,8
-1044,Northanger Abbey,Jane Austen,1817,TRUE,10
-1045,Persuasion,Jane Austen,1817,TRUE,9
-1046,War and Peace,Leo Tolstoy,1869,TRUE,12
-1047,Anna Karenina,Leo Tolstoy,1877,TRUE,10
-1048,The Death of Ivan Ilyich,Leo Tolstoy,1886,TRUE,13
-1049,Resurrection,Leo Tolstoy,1899,TRUE,7
-1050,The Brothers Karamazov,Fyodor Dostoevsky,1880,TRUE,10
-1051,Crime and Punishment,Fyodor Dostoevsky,1866,TRUE,11
-1052,Notes from Underground,Fyodor Dostoevsky,1864,TRUE,9
-1053,The Idiot,Fyodor Dostoevsky,1869,TRUE,13
-1054,The Demon-Haunted World,Carl Sagan,1995,TRUE,12
-1055,Cosmos,Carl Sagan,1980,TRUE,14
-1056,Contact,Carl Sagan,1985,TRUE,8
-1057,The Dragons of Eden,Carl Sagan,1977,TRUE,10
-1058,Shadows of Forgotten Ancestors,Carl Sagan,1992,TRUE,11
-1059,The Variety of Scientific Experience,Carl Sagan,2006,TRUE,9
-1060,The Catch-22,Joseph Heller,1961,TRUE,12
-1061,The Godfather,Mario Puzo,1969,TRUE,10
-1062,The Stand,Stephen King,1978,TRUE,14
-1063,It,Stephen King,1986,TRUE,13
-1064,The Shining,Stephen King,1977,TRUE,11
-1065,Carrie,Stephen King,1974,TRUE,15
-1066,Salem's Lot,Stephen King,1975,TRUE,9
-1067,Misery,Stephen King,1987,TRUE,14
-1068,The Dark Tower I: The Gunslinger,Stephen King,1982,TRUE,10
-1069,Pet Sematary,Stephen King,1983,TRUE,12
-1070,The Da Vinci Code,Dan Brown,2003,TRUE,15
-1071,Angels & Demons,Dan Brown,2000,TRUE,11
-1072,Digital Fortress,Dan Brown,1998,TRUE,9
-1073,Deception Point,Dan Brown,2001,TRUE,13
-1074,Inferno,Dan Brown,2013,TRUE,14
-1075,Origin,Dan Brown,2017,TRUE,12
-1076,The Lost Symbol,Dan Brown,2009,TRUE,15
-1077,Don Quixote,Miguel de Cervantes,1615,TRUE,10
-1078,One Hundred Years of Solitude,Gabriel Garcia Marquez,1967,TRUE,9
-1079,Love in the Time of Cholera,Gabriel Garcia Marquez,1985,TRUE,11
-1080,Crime and Punishment,Fyodor Dostoevsky,1866,TRUE,12
-1081,The Brothers Karamazov,Fyodor Dostoevsky,1880,TRUE,14
-1082,War and Peace,Leo Tolstoy,1869,TRUE,10
-1083,Anna Karenina,Leo Tolstoy,1877,TRUE,13
-1084,Moby Dick,Herman Melville,1851,TRUE,9
-1085,The Odyssey,Homer,1700,TRUE,11
-1086,The Iliad,Homer,1762,TRUE,14
-1087,Pride and Prejudice,Jane Austen,1813,TRUE,12
-1088,Sense and Sensibility,Jane Austen,1811,TRUE,10
-1089,Emma,Jane Austen,1815,TRUE,13
-1090,Persuasion,Jane Austen,1817,TRUE,11
-1091,Northanger Abbey,Jane Austen,1817,TRUE,15
-1092,Mansfield Park,Jane Austen,1814,TRUE,14
-1093,Little Women,Louisa May Alcott,1868,TRUE,9
-1094,Jo's Boys,Louisa May Alcott,1886,TRUE,12
-1095,The Scarlet Letter,Nathaniel Hawthorne,1850,TRUE,10
-1096,The House of the Seven Gables,Nathaniel Hawthorne,1851,TRUE,8
-1097,Dracula,Bram Stoker,1897,TRUE,14
-1098,The Adventures of Huckleberry Finn,Mark Twain,1884,TRUE,15
-1099,The Adventures of Tom Sawyer,Mark Twain,1876,TRUE,11
-1100,The Picture of Dorian Gray,Oscar Wilde,1890,TRUE,12
-1101,The Importance of Being Earnest,Oscar Wilde,1895,TRUE,14
-1102,Macbeth,William Shakespeare,1606,TRUE,10
-1103,Hamlet,William Shakespeare,1603,TRUE,12
-1104,Othello,William Shakespeare,1603,TRUE,11
-1105,King Lear,William Shakespeare,1606,TRUE,13
-1106,Romeo and Juliet,William Shakespeare,1597,TRUE,9
-1107,The Tempest,William Shakespeare,1611,TRUE,11
-1108,Julius Caesar,William Shakespeare,1599,TRUE,13
-1109,The Merchant of Venice,William Shakespeare,1597,TRUE,12
+1000,To Kill a Mockingbird,Harper Lee,1960,true,7
+1001,1984,George Orwell,1949,true,12
+1002,The Great Gatsby,F. Scott Fitzgerald,1925,true,15
+1003,The Catcher in the Rye,J.D. Salinger,1951,true,9
+1004,The Lord of the Rings,J.R.R. Tolkien,1954,true,11
+1005,The Hobbit,J.R.R. Tolkien,1937,true,13
+1006,The Da Vinci Code,Dan Brown,2003,true,10
+1007,Angels & Demons,Dan Brown,2000,true,8
+1008,Harry Potter and the Sorcerer's Stone,J.K. Rowling,1997,true,15
+1009,Harry Potter and the Chamber of Secrets,J.K. Rowling,1998,true,13
+1010,Harry Potter and the Prisoner of Azkaban,J.K. Rowling,1999,true,14
+1011,Harry Potter and the Goblet of Fire,J.K. Rowling,2000,true,12
+1012,Harry Potter and the Order of the Phoenix,J.K. Rowling,2003,true,16
+1013,Harry Potter and the Half-Blood Prince,J.K. Rowling,2005,true,15
+1014,Harry Potter and the Deathly Hallows,J.K. Rowling,2007,true,17
+1015,The Alchemist,Paulo Coelho,1988,true,11
+1016,Brida,Paulo Coelho,1990,true,9
+1017,The Devil and Miss Prym,Paulo Coelho,2000,true,10
+1018,Eleven Minutes,Paulo Coelho,2003,true,8
+1019,The Valkyries,Paulo Coelho,1992,true,7
+1020,The Old Man and the Sea,Ernest Hemingway,1952,true,14
+1021,The Sun Also Rises,Ernest Hemingway,1926,true,8
+1022,A Farewell to Arms,Ernest Hemingway,1929,true,12
+1023,For Whom the Bell Tolls,Ernest Hemingway,1940,true,11
+1024,The Great Alone,Kristin Hannah,2018,true,9
+1025,The Nightingale,Kristin Hannah,2015,true,13
+1026,Firefly Lane,Kristin Hannah,2008,true,15
+1027,Fly Away,Kristin Hannah,2013,true,10
+1028,The Four Winds,Kristin Hannah,2021,true,12
+1029,The Mystery of Mercy Close,Marian Keyes,2012,true,7
+1030,Watermelon,Marian Keyes,1995,true,14
+1031,Rachel's Holiday,Marian Keyes,1998,true,8
+1032,Last Chance Saloon,Marian Keyes,1999,true,9
+1033,Sushi for Beginners,Marian Keyes,2000,true,11
+1034,The Other Side of the Story,Marian Keyes,2004,true,12
+1035,The Glass Lake,Maeve Binchy,1994,true,15
+1036,Circle of Friends,Maeve Binchy,1990,true,7
+1037,The Copper Beech,Maeve Binchy,1992,true,10
+1038,Firefly Summer,Maeve Binchy,1987,true,13
+1039,Evening Class,Maeve Binchy,1996,true,16
+1040,Pride and Prejudice,Jane Austen,1813,true,10
+1041,Sense and Sensibility,Jane Austen,1811,true,9
+1042,Mansfield Park,Jane Austen,1814,true,11
+1043,Emma,Jane Austen,1815,true,8
+1044,Northanger Abbey,Jane Austen,1817,true,10
+1045,Persuasion,Jane Austen,1817,true,9
+1046,War and Peace,Leo Tolstoy,1869,true,12
+1047,Anna Karenina,Leo Tolstoy,1877,true,10
+1048,The Death of Ivan Ilyich,Leo Tolstoy,1886,true,13
+1049,Resurrection,Leo Tolstoy,1899,true,7
+1050,The Brothers Karamazov,Fyodor Dostoevsky,1880,true,10
+1051,Crime and Punishment,Fyodor Dostoevsky,1866,true,11
+1052,Notes from Underground,Fyodor Dostoevsky,1864,true,9
+1053,The Idiot,Fyodor Dostoevsky,1869,true,13
+1054,The Demon-Haunted World,Carl Sagan,1995,true,12
+1055,Cosmos,Carl Sagan,1980,true,14
+1056,Contact,Carl Sagan,1985,true,8
+1057,The Dragons of Eden,Carl Sagan,1977,true,10
+1058,Shadows of Forgotten Ancestors,Carl Sagan,1992,true,11
+1059,The Variety of Scientific Experience,Carl Sagan,2006,true,9
+1060,The Catch-22,Joseph Heller,1961,true,12
+1061,The Godfather,Mario Puzo,1969,true,10
+1062,The Stand,Stephen King,1978,true,14
+1063,It,Stephen King,1986,true,13
+1064,The Shining,Stephen King,1977,true,11
+1065,Carrie,Stephen King,1974,true,15
+1066,Salem's Lot,Stephen King,1975,true,9
+1067,Misery,Stephen King,1987,true,14
+1068,The Dark Tower I: The Gunslinger,Stephen King,1982,true,10
+1069,Pet Sematary,Stephen King,1983,true,12
+1070,The Da Vinci Code,Dan Brown,2003,true,15
+1071,Angels & Demons,Dan Brown,2000,true,11
+1072,Digital Fortress,Dan Brown,1998,true,9
+1073,Deception Point,Dan Brown,2001,true,13
+1074,Inferno,Dan Brown,2013,true,14
+1075,Origin,Dan Brown,2017,true,12
+1076,The Lost Symbol,Dan Brown,2009,true,15
+1077,Don Quixote,Miguel de Cervantes,1615,true,10
+1078,One Hundred Years of Solitude,Gabriel Garcia Marquez,1967,true,9
+1079,Love in the Time of Cholera,Gabriel Garcia Marquez,1985,true,11
+1080,Crime and Punishment,Fyodor Dostoevsky,1866,true,12
+1081,The Brothers Karamazov,Fyodor Dostoevsky,1880,true,14
+1082,War and Peace,Leo Tolstoy,1869,true,10
+1083,Anna Karenina,Leo Tolstoy,1877,true,13
+1084,Moby Dick,Herman Melville,1851,true,9
+1085,The Odyssey,Homer,1700,true,11
+1086,The Iliad,Homer,1762,true,14
+1087,Pride and Prejudice,Jane Austen,1813,true,12
+1088,Sense and Sensibility,Jane Austen,1811,true,10
+1089,Emma,Jane Austen,1815,true,13
+1090,Persuasion,Jane Austen,1817,true,11
+1091,Northanger Abbey,Jane Austen,1817,true,15
+1092,Mansfield Park,Jane Austen,1814,true,14
+1093,Little Women,Louisa May Alcott,1868,true,9
+1094,Jo's Boys,Louisa May Alcott,1886,true,12
+1095,The Scarlet Letter,Nathaniel Hawthorne,1850,true,10
+1096,The House of the Seven Gables,Nathaniel Hawthorne,1851,true,8
+1097,Dracula,Bram Stoker,1897,true,14
+1098,The Adventures of Huckleberry Finn,Mark Twain,1884,true,15
+1099,The Adventures of Tom Sawyer,Mark Twain,1876,true,11
+1100,The Picture of Dorian Gray,Oscar Wilde,1890,true,12
+1101,The Importance of Being Earnest,Oscar Wilde,1895,true,14
+1102,Macbeth,William Shakespeare,1606,true,10
+1103,Hamlet,William Shakespeare,1603,true,12
+1104,Othello,William Shakespeare,1603,true,11
+1105,King Lear,William Shakespeare,1606,true,13
+1106,Romeo and Juliet,William Shakespeare,1597,true,9
+1107,The Tempest,William Shakespeare,1611,true,11
+1108,Julius Caesar,William Shakespeare,1599,true,13
+1109,The Merchant of Venice,William Shakespeare,1597,true,12
+
