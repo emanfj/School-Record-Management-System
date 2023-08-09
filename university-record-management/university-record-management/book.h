@@ -7,7 +7,6 @@
 
 #include "AVLTree.h"
 #include "Hash_Table.h"
-//#include "utilities.h"
 
 class Book;
 
@@ -63,6 +62,7 @@ public:
     static bool isBookAvailable(const HashTable<Book>& bookTable, const std::string& title);
     static void retrieveAndPrintAvailableBooks(HashTable<Book>& bookTable); 
     static void retrieveBooksByAuthor(const HashTable<Book>& bookTable);
+    static void retrieveBooksByYear(const HashTable<Book>& bookTable);
 
 };
 

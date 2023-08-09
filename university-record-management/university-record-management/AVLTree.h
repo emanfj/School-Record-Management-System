@@ -6,7 +6,6 @@
 #include <vector>
 #include <iostream>
 using namespace std;
-// #include "Hash_Table.h"
 
 // defining template class for avl trees
 template <typename T>
@@ -48,10 +47,9 @@ public:
     // public constructor for avl tree
     AVLTree() : root(nullptr) {}
 
-    // friend class HashTable<T>;
-
     // main functions for the public interface
     // input parameters root node and template key data
+    
     // public insert method
     bool isEmpty() const
     {

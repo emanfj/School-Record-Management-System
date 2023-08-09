@@ -53,11 +53,11 @@ bool Book::isBookAvailable(const HashTable<Book>& bookTable, const std::string& 
 
     if (tree)
     {
-        // Search the AVL tree using the dummy book
-        // AVL tree search function expects a book object
+        //search the AVL tree using the dummy book
+        //AVL tree search function expects a book object
         Book* foundBook = tree->search(tempBook);
 
-        // If the book is found, return its availability
+        //if the book is found return its availability
         if (foundBook)
         {
             return foundBook->getAvailability();
@@ -120,9 +120,37 @@ void Book::retrieveBooksByAuthor(const HashTable<Book>& bookTable) {
         std::cout << "\nNo books found by the author " << author << ".\n";
     }
     else {
+        std::cout << "---------------------------------------------\n";
         std::cout << "\nBooks by " << author << " in our inventory:\n";
         for (int i = 0; i < booksByAuthor.size(); i++) {
             std::cout << booksByAuthor[i].getTitle() << "\n";  
+        }
+    }
+}
+
+void Book::retrieveBooksByYear(const HashTable<Book>& bookTable) {
+    int year;
+    std::cout << "Enter the year you want to search for: ";
+    std::cin >> year;
+
+    std::vector<Book> allBooks = bookTable.getAllValues();
+    std::vector<Book> booksFromYear;  //to store the books published in the given year
+
+    //loop through all books to check if the publishing year matches
+    for (int i = 0; i < allBooks.size(); i++) {
+        if (allBooks[i].getYear() == year) {
+            booksFromYear.push_back(allBooks[i]);
+        }
+    }
+
+    if (booksFromYear.empty()) {
+        std::cout << "No books found that were published in the year " << year << ".\n";
+    }
+    else {
+        std::cout << "----------------------------------\n";
+        std::cout << "Books published in " << year << ":\n";
+        for (int i = 0; i < booksFromYear.size(); i++) {
+            std::cout << booksFromYear[i].getTitle() << " by " << booksFromYear[i].getAuthor() << "\n";  // Assuming Book has getTitle and getAuthor functions
         }
     }
 }
@@ -176,13 +204,13 @@ std::istream& operator>>(std::istream& is, Book& book)
     bool availability;
     int quantity;
 
-    // Read data from input stream
+    //read data from input stream
     std::cout << "Enter Book ID: ";
     is >> id;
     book.setId(id);
 
     std::cout << "Enter Title: ";
-    is.ignore(); // Ignore newline character from previous input
+    is.ignore(); //ignore newline character from previous input
     std::getline(is, title);
     book.setTitle(title);
 
@@ -195,7 +223,7 @@ std::istream& operator>>(std::istream& is, Book& book)
     book.setAvailability(availability);
 
     std::cout << "Enter Author: ";
-    is.ignore(); // Ignore newline character from previous input
+    is.ignore(); //ignore newline character from previous input
     std::getline(is, author);
     book.setAuthor(author);
 

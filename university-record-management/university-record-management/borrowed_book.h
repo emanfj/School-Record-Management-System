@@ -51,6 +51,7 @@ public:
 
     //method declarations
     void print() const;
+    //static because these methods arent instance specific
     static void borrowBook(HashTable<Book>& bookInventory, HashTable<BorrowedBook>& borrowedBooks);
     static void returnBook(HashTable<Book>& bookInventory, HashTable<BorrowedBook>& borrowedBooks);
     static std::vector<std::string> getBorrowedBooks(const HashTable<BorrowedBook>& borrowedBooks);

@@ -66,6 +66,8 @@ int main()
                 cout << "3. Print details of students of a particular age" << endl;
                 cout << "4. Print details of students of a particular grade levels" << endl;
                 cout << "5. Print age frequency for any grade level" << endl;
+                cout << "6. Promote student grade level" << endl;
+                cout << "7. Delete student record" << endl;
                 cout << "0. Go Back to Main Menu" << endl;
                 cout << "\nEnter your choice: ";
                 cin >> studentChoice;
@@ -101,12 +103,27 @@ int main()
                 {
                     Student::retrieveAndPrintStudentsByGrade(studentTable);
                 }
+                break;
                 case 5:
                 {
                     Student::printAgeFrequency(studentTable);
                 }
                 break;
-                    //more cases
+                case 6:
+                {
+                    Student::promoteStudent(studentTable);
+                    studentDataChanged = true;
+                }
+                break;
+                case 7:
+                {
+                    int studentId;
+                    std::cout << "Enter the student ID to delete: ";
+                    std::cin >> studentId;
+                    Student::deleteStudentRecord(studentTable, studentId);
+                    studentDataChanged = true;
+                }
+                break;
                 case 0:
                     break;
                 default:
@@ -129,7 +146,7 @@ int main()
                 cout << "6. Print information of borrowed books" << endl;
                 cout << "7. Print borrower details for a book" << endl;
                 cout << "8. Print all books written by the same author " << endl;
-                //more book related functions
+                cout << "9. Print all books written in the same year" << endl;
                 cout << "0. Go Back to Main Menu" << endl;
                 cout << "\nEnter your choice: ";
                 cin >> libraryChoice;
@@ -207,6 +224,11 @@ int main()
                 {
                     Book::retrieveBooksByAuthor(bookTable);
                 }
+                break;
+                case 9:
+                {
+                    Book::retrieveBooksByYear(bookTable);
+                }
                 case 0:
                     break;
                 default:
@@ -225,7 +247,7 @@ int main()
     } while (choice != 0);
 
     //before exiting the session write all hash tables into respective csv files with updated data
-    //check if said hash table has had any changes (if possible)
+    //check if said hash table has had any changes by flags
     if (studentDataChanged) 
     {
         writeStudentCSV(studentTable,"students.csv");  

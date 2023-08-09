@@ -27,6 +27,7 @@ void Student::retrieveAndPrintStudentDetails(const HashTable<Student>& studentTa
     std::string studentName;
 
     //prompt the user for the student's name
+    std::cout << "----------------------------------------------------\n";
     std::cout << "Enter the name of the student to retrieve details: ";
     std::cin.clear(); //clear any errors on the stream
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //ignore up to the newline
@@ -51,6 +52,7 @@ void Student::retrieveAndPrintStudentsByAge(const HashTable<Student>& studentTab
     int age;
 
     //prompt the user for age
+    std::cout << "----------------------------------------------------\n";
     std::cout << "Enter the age of the students to retrieve details: ";
     std::cin >> age;
 
@@ -83,9 +85,9 @@ void Student::retrieveAndPrintStudentsByGrade(const HashTable<Student>& studentT
     int grade;
 
     //prompt the user for grade
+    std::cout << "----------------------------------------------------\n";
     std::cout << "Enter the grade of the students to retrieve details: ";
     std::cin >> grade;
-
     std::vector<HashTable<Student>::Item*> items = studentTable.getItems();
     for (int i = 0; i < items.size(); ++i) {
         AVLTree<Student>* avlTree = items[i]->getHashValue();
@@ -131,13 +133,66 @@ void Student::printAgeFrequency(const HashTable<Student>& studentTable) {
     }
 
     //print out the frequencies for each age from 13 to 19
+    std::cout << "----------------------------------------\n";
     std::cout << "Age frequency for grade " << grade << ":\n";
     for (int i = 0; i < 7; ++i) {
         std::cout << i + 13 << ": " << ageFrequencies[i] << "\n";
     }
 }
 
+void Student::promoteStudent(HashTable<Student>& studentTable) {
+    int studentId;
 
+    std::cout << "Enter the student ID to promote: ";
+    std::cin >> studentId;
+
+    std::vector<Student> allStudents = studentTable.getAllValues();
+    bool found = false;
+
+    //loop through all students to find the matching ID
+    for (int i = 0; i < allStudents.size(); i++) {
+        if (allStudents[i].getId() == studentId) {
+            int currentGrade = allStudents[i].getGrade();
+            std::string studentName = allStudents[i].getName();  //retrieve the student's name
+
+            allStudents[i].setGrade(currentGrade + 1);
+
+            if (allStudents[i].getGrade() > 12) {
+                std::cout << "Student " << studentName << " with ID " << studentId << " has graduated." << std::endl;
+                deleteStudentRecord(studentTable, studentId);
+            }
+            else {
+                std::cout << "Student " << studentName << " with ID " << studentId << " has been promoted to grade " << allStudents[i].getGrade() << "." << std::endl;
+            }
+            found = true;
+            break;  // exit the loop once the student is found and promoted or deleted
+        }
+    }
+
+    if (!found) {
+        std::cout << "Student with ID " << studentId << " not found in the system." << std::endl;
+    }
+}
+
+void Student::deleteStudentRecord(HashTable<Student>& studentTable, int studentId) {
+    std::vector<Student> allStudents = studentTable.getAllValues();
+    bool found = false;
+
+    // Loop through all students to find the matching ID
+    for (int i = 0; i < allStudents.size(); i++) {
+        if (allStudents[i].getId() == studentId) {
+            std::string studentName = allStudents[i].getName();  //retrieve the student's name
+            studentTable.remove(std::to_string(studentId), allStudents[i]);
+            std::cout << "Student " << studentName << " with ID " << studentId << " has been deleted." << std::endl;
+            found = true;
+            break;  // exit the loop once the student is found and deleted
+        }
+    }
+
+    if (!found) {
+        std::cout << "Student with ID " << studentId << " not found in the system." << std::endl;
+    }
+}
 
 
 // operator overloading for comparison operators

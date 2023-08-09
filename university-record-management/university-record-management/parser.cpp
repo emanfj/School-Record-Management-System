@@ -171,7 +171,7 @@ void writeStudentCSV(const HashTable<Student>& studentTable, const std::string& 
 	file.close();
 }
 
-// Write book data from hash table to csv file
+//write book data from hash table to csv file
 void writeBookCSV(const HashTable<Book>& bookTable, const std::string& filename) {
 	std::ofstream file(filename);
 
@@ -180,7 +180,7 @@ void writeBookCSV(const HashTable<Book>& bookTable, const std::string& filename)
 		return;
 	}
 
-	// Write header
+	//write header
 	file << "ID,Title,Author,Publishing Year,Availability,Quantity\n";
 
 	std::vector<Book> books = bookTable.getAllValues();
@@ -197,7 +197,7 @@ void writeBookCSV(const HashTable<Book>& bookTable, const std::string& filename)
 	file.close();
 }
 
-// Write borrowed book data from hash table to csv file
+//write borrowed book data from hash table to csv file
 void writeBorrowedBookCSV(const HashTable<BorrowedBook>& borrowedBookTable, const std::string& filename) {
 	std::ofstream file(filename);
 
@@ -206,7 +206,7 @@ void writeBorrowedBookCSV(const HashTable<BorrowedBook>& borrowedBookTable, cons
 		return;
 	}
 
-	// Write header
+	//write header
 	file << "ID,Title,Borrower,Issue Date,Due Date\n";
 
 	std::vector<BorrowedBook> borrowedBooks = borrowedBookTable.getAllValues();

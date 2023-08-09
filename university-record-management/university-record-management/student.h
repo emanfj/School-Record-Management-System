@@ -56,6 +56,8 @@ public:
     static void retrieveAndPrintStudentsByAge(const HashTable<Student>& studentTable);
     static void retrieveAndPrintStudentsByGrade(const HashTable<Student>& studentTable);
     static void printAgeFrequency(const HashTable<Student>& studentTable);
+    static void promoteStudent(HashTable<Student>& studentTable);
+    static void deleteStudentRecord(HashTable<Student>& studentTable, int studentId);
 
 };
 

@@ -189,6 +189,7 @@ void BorrowedBook::retrieveBorrowerDetailsForBook(const HashTable<BorrowedBook>&
         if (foundBorrowedBook)
         {
             std::cout << std::endl;
+            std::cout << "-------------------------------------------\n";
             std::cout << "Book Title: " << foundBorrowedBook->getTitle() << std::endl;
             std::cout << "Borrower: " << foundBorrowedBook->getBorrower() << std::endl;
             std::cout << "Issue Date: " << foundBorrowedBook->getIssueDate() << std::endl;
@@ -203,7 +204,7 @@ void BorrowedBook::retrieveBorrowerDetailsForBook(const HashTable<BorrowedBook>&
 //implementations of operator overloading
 
 //definitions for operator overloading
-// Comparison Operators:
+//comparison Operators:
 
 bool operator<(const BorrowedBook& lhs, const BorrowedBook& rhs) {
     return lhs.getTitle() < rhs.getTitle();
